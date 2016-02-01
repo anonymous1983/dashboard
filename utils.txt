@@ -1,0 +1,77 @@
+https://medium.com/google-developer-experts/angular-2-introduction-to-new-http-module-1278499db2a0#.7lfncc38k
+
+http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html
+
+https://auth0.com/blog/2015/10/15/angular-2-series-part-3-using-http/
+
+http://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html
+
+
+
+http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html
+
+http://blog.thoughtram.io/angular/2015/09/17/resolve-service-dependencies-in-angular-2.html
+
+http://www.datchley.name/es6-promises/
+
+
+https://github.com/angular/angular/blob/2.0.0-beta.0/modules/angular2/src/facade/lang.ts
+
+https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md#3.11.1
+
+
+http://www.alsacreations.com/tuto/lire/1686-introduction-a-gulp.html
+
+
+https://github.com/taylorhakes/html5-sortable
+http://www.html5rocks.com/en/tutorials/dnd/basics/#toc-creating-dnd-content
+
+http://datatorrent.github.io/malhar-dashboard-webapp/#/
+
+@Directive v/s @Component in angular2
+http://www.codeandyou.com/2016/01/difference-between-component-and-directive-in-Angular2.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Header -->
+<div class="panel-heading  ui-sortable-handle">
+    <h3 class="panel-title">
+        <i class="{{panel.icons}}"></i>
+        {{panel.title}}
+    </h3>
+</div>
+<!-- End Header -->
+
+<!-- Body -->
+<div class="panel-body">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu lectus arcu. Morbi at sapien
+        leo! Mauris sed lectus et est commodo tincidunt. Integer tincidunt mattis tortor, sed dignissim
+        felis condimentum vitae! Nam orci orci;</p>
+</div>
+<!-- End Body -->
+
+
+<!-- Footer -->
+<div class="panel-footer text-right" *ngIf="panel.footer.list.length">
+    <a href="#">
+        Toutes les actualités
+        <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
+    </a>
+</div>
+<!-- End Footer -->
