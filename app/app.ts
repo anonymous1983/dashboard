@@ -4,7 +4,7 @@ import {ROUTER_PROVIDERS, RouterOutlet, RouteConfig, RouterLink, Location} from 
 import {LocationStrategy, HashLocationStrategy} from 'angular2/router';
 
 import { Routing } from './Routing';
-import { Progress } from './common/util/progress';
+import { Progress } from './common/services/atexo.service';
 
 @Component({
     selector: 'my-app'

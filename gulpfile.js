@@ -60,7 +60,7 @@ gulp.task('serve', ['ts-lint', 'compile-ts', 'compile-sass'], function() {
     gulp.watch([config.allSass], ['compile-sass']);
 	
     browserSync({
-        port: 3000,
+        port: 5600,
         files: ['./app/**/*.html', './app/**/*.js', './src/**/*.css'],
         injectChanges: true,
         logFileChanges: false,

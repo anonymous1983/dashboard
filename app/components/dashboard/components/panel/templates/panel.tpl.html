@@ -1,27 +1,65 @@
+<div class="panel panel-default bloc-toggle"
+     [ngClass]="{close: closeClass}">
+    <!-- Header -->
+    <header class="panel-heading ui-sortable-handle">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-left">
+                    <h3 class="panel-title">
+                        <i class="panel.icons"></i>
+                        {{panelObj.title}}
+                    </h3>
+                </div>
+                <div class="pull-right">
+                    <div class="widget-controls">
+                        <a href=""
+                           data-widgster="Collapse"
+                           title="{{ (panelObj.options.collapse.title !== '')? panelObj.options.collapse.title : 'Collapse' }}"
+                           (click)="collapse()"
+                           *ngIf="panelObj.options.collapse.active">
+                            <i class="{{ (panelObj.options.collapse.icons !== '')? panelObj.options.collapse.icons : 'fa fa-minus' }}"></i>
+                        </a>
+                        <a href=""
+                           data-widgster="close"
+                           title="{{ (panelObj.options.close.title !== '')? panelObj.options.close.title : 'Close' }}"
+                           (click)="close()"
+                           *ngIf="panelObj.options.close.active">
+                            <i class="{{ (panelObj.options.close.icons !== '')? panelObj.options.close.icons : 'fa fa-close' }}"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
 
-<!-- Header -->
-<div class="panel-heading  ui-sortable-handle">
-    <h3 class="panel-title">
-        <i class="panel.icons"></i>
-        panel.title
-    </h3>
+    <!-- Body -->
+    <div class="panel-body collapse"
+         aria-expanded="true"
+         [ngClass]="{collapse: collapseClass}">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu lectus arcu. Morbi at sapien
+            leo! Mauris sed lectus et est commodo tincidunt. Integer tincidunt mattis tortor, sed dignissim
+            felis condimentum vitae! Nam orci orci;</p>
+    </div>
+    <!-- End Body -->
+
+
+    <!-- Footer -->
+    <footer class="panel-footer text-right collapse"
+            aria-expanded="true"
+            [ngClass]="{collapse: collapseClass}"
+            *ngIf="panelObj.footer.list.length">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-right">
+                    <a href="" *ngIf="panelObj.footer.list[0].type === 'link'">
+                        {{panelObj.footer.list[0].title}}
+                        <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- End Footer -->
 </div>
-<!-- End Header -->
-
-<!-- Body -->
-<div class="panel-body">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu lectus arcu. Morbi at sapien
-        leo! Mauris sed lectus et est commodo tincidunt. Integer tincidunt mattis tortor, sed dignissim
-        felis condimentum vitae! Nam orci orci;</p>
-</div>
-<!-- End Body -->
-
-
-<!-- Footer -->
-<div class="panel-footer text-right">
-    <a href="#">
-        Toutes les actualités
-        <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
-    </a>
-</div>
-<!-- End Footer -->

@@ -11,6 +11,12 @@
     color: #3d6ba6;
     font-size: 1em; }
 
+.panel.close {
+  display: none; }
+
+.panel .widget-controls a {
+  text-decoration: none; }
+
 body {
   font: 11px Arial, Helvetica, sans-serif;
   color: #666; }

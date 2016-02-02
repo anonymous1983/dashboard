@@ -5,19 +5,19 @@ exports.panel = [
         icons: 'fa fa-caret-right',
         options: {
             toggle: {
-                active: false,
+                active: true,
                 icons: '',
                 title: ''
             },
             close: {
-                active: false,
-                icons: '',
-                title: ''
+                active: true,
+                icons: 'fa fa-close',
+                title: 'Close'
             },
             collapse: {
-                active: false,
-                icons: '',
-                title: ''
+                active: true,
+                icons: 'fa fa-minus',
+                title: 'Collapse'
             },
             actions: {
                 active: false,

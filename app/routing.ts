@@ -1,8 +1,7 @@
 import {RouteDefinition} from 'angular2/router';
 
-import { Todo } from './components/todo/todo';
 import { About } from './components/about/about';
-import { Dashboard } from './components/dashboard/dashboard';
+import { Dashboard } from './components/dashboard/dashboard.component';
 
 
 export var Routing = [
