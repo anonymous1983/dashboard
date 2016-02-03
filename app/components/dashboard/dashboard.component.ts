@@ -5,7 +5,7 @@ import {HTTP_PROVIDERS, Http, RequestOptions, Request, Response, RequestMethod} 
 import {Progress} from '../../common/services/atexo.service';
 
 import {PanelProvider} from './providers/panel.provider';
-import {Panel} from './components/panel/panel.componenet';
+import {Panel} from './components/panel/panel.component';
 
 @Component({
     selector: 'dashboard',

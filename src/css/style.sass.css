@@ -17,6 +17,49 @@
 .panel .widget-controls a {
   text-decoration: none; }
 
+.panel .more {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 0.875em; }
+
+.panel-body-article-wrap {
+  max-height: 200px;
+  overflow: hidden;
+  position: relative; }
+
+.articles {
+  max-height: 200px;
+  overflow: auto; }
+  .articles li:first-child .article {
+    border-top: 0; }
+  .articles .article {
+    border-top: 1px solid #F0F0F0;
+    padding-bottom: 10px;
+    padding-top: 5px; }
+    .articles .article p {
+      margin: 0 0 5px; }
+    .articles .article .title {
+      color: #3D6BA6;
+      font-size: 1em;
+      font-weight: 600; }
+    .articles .article .date {
+      float: right;
+      color: #777;
+      font-size: 0.785em; }
+    .articles .article .content {
+      color: #666666; }
+
+.article-full-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff; }
+
 body {
   font: 11px Arial, Helvetica, sans-serif;
-  color: #666; }
+  color: #3D6BA6; }

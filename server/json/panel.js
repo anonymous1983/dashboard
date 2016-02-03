@@ -1,8 +1,12 @@
 exports.panel = [
     {
         id: 1,
-        title: 'Bienvenue Jean BREST',
-        icons: 'fa fa-caret-right',
+        type: {
+            category: 'EDITOR',
+            subcategory: ''
+        },
+        title: 'Bloc Notes',
+        icons: 'fa fa-clipboard',
         options: {
             toggle: {
                 active: true,
@@ -25,17 +29,17 @@ exports.panel = [
                 title: 'actions',
                 list: [
                     {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Action',
                         fn: ''
                     },
                     {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Another action',
                         fn: ''
                     },
                     {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Something else here',
                         fn: ''
                     },
@@ -45,7 +49,7 @@ exports.panel = [
                         fn: ''
                     },
                     {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Separated link',
                         fn: ''
                     }
@@ -57,13 +61,18 @@ exports.panel = [
             list: []
         },
         data: '',
+        urlData: 'http://localhost:3000/bienvenue',
         location: {
-            zone: 1,
-            order: 1
+            zone: 2,
+            order: 2
         }
     },
     {
         id: 2,
+        type: {
+            category: 'LIST',
+            subcategory: ''
+        },
         title: 'Mes consultations',
         icons: 'fa fa-folder',
         options: {
@@ -73,12 +82,12 @@ exports.panel = [
                 title: ''
             },
             close: {
-                active: false,
+                active: true,
                 icons: '',
                 title: ''
             },
             collapse: {
-                active: false,
+                active: true,
                 icons: '',
                 title: ''
             },
@@ -88,17 +97,17 @@ exports.panel = [
                 title: 'actions',
                 list: [
                     {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Action',
                         fn: ''
                     },
                     {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Another action',
                         fn: ''
                     },
                     {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Something else here',
                         fn: ''
                     },
@@ -108,7 +117,7 @@ exports.panel = [
                         fn: ''
                     },
                     {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Separated link',
                         fn: ''
                     }
@@ -119,13 +128,15 @@ exports.panel = [
         footer: {
             list: [
                 {
-                    type: 'link',
+                    type: 'LINK',
+
                     title: 'Toutes mes consultations',
                     link: ''
                 }
             ]
         },
         data: '',
+        urlData: '',
         location: {
             zone: 2,
             order: 1
@@ -133,6 +144,10 @@ exports.panel = [
     },
     {
         id: 3,
+        type: {
+            category: 'SEARCH',
+            subcategory: ''
+        },
         title: 'Recherche rapide',
         icons: 'fa fa-search fa-flip-horizontal',
         options: {
@@ -142,12 +157,12 @@ exports.panel = [
                 title: ''
             },
             close: {
-                active: false,
+                active: true,
                 icons: '',
                 title: ''
             },
             collapse: {
-                active: false,
+                active: true,
                 icons: '',
                 title: ''
             },
@@ -157,17 +172,17 @@ exports.panel = [
                 title: 'actions',
                 list: [
                     {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Action',
                         fn: ''
                     },
                     {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Another action',
                         fn: ''
                     },
                     {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Something else here',
                         fn: ''
                     },
@@ -177,7 +192,7 @@ exports.panel = [
                         fn: ''
                     },
                     {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Separated link',
                         fn: ''
                     }
@@ -188,13 +203,14 @@ exports.panel = [
         footer: {
             list: [
                 {
-                    type: 'link',
+                    type: 'LINK',
                     title: 'Recherche avancée',
                     link: ''
                 }
             ]
         },
         data: '',
+        urlData: '',
         location: {
             zone: 3,
             order: 1
@@ -202,6 +218,10 @@ exports.panel = [
     },
     {
         id: 4,
+        type: {
+            category: 'ARTICLE',
+            subcategory: ''
+        },
         title: 'Actualités',
         icons: 'fa fa-newspaper-o',
         options: {
@@ -211,12 +231,12 @@ exports.panel = [
                 title: ''
             },
             close: {
-                active: false,
+                active: true,
                 icons: '',
                 title: ''
             },
             collapse: {
-                active: false,
+                active: true,
                 icons: '',
                 title: ''
             },
@@ -226,17 +246,17 @@ exports.panel = [
                 title: 'actions',
                 list: [
                     {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Action',
                         fn: ''
                     },
                     {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Another action',
                         fn: ''
                     },
                     {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Something else here',
                         fn: ''
                     },
@@ -246,145 +266,7 @@ exports.panel = [
                         fn: ''
                     },
                     {
-                        type: 'item',
-                        title: 'Separated link',
-                        fn: ''
-                    }
-
-                ]
-            }
-        },
-        footer: {
-            list: [
-                {
-                    type: 'link',
-                    title: 'Toutes les actualités',
-                    link: ''
-                }
-            ]
-        },
-        data: '',
-        location: {
-            zone: 3,
-            order: 2
-        }
-    },
-    {
-        id: 5,
-        title: 'Dernières publications',
-        icons: 'fa fa-file',
-        options: {
-            toggle: {
-                active: false,
-                icons: '',
-                title: ''
-            },
-            close: {
-                active: false,
-                icons: '',
-                title: ''
-            },
-            collapse: {
-                active: false,
-                icons: '',
-                title: ''
-            },
-            actions: {
-                active: false,
-                icons: '',
-                title: 'actions',
-                list: [
-                    {
-                        type: 'item',
-                        title: 'Action',
-                        fn: ''
-                    },
-                    {
-                        type: 'item',
-                        title: 'Another action',
-                        fn: ''
-                    },
-                    {
-                        type: 'item',
-                        title: 'Something else here',
-                        fn: ''
-                    },
-                    {
-                        type: 'divider',
-                        title: '',
-                        fn: ''
-                    },
-                    {
-                        type: 'item',
-                        title: 'Separated link',
-                        fn: ''
-                    }
-
-                ]
-            }
-        },
-        footer: {
-            list: [
-                {
-                    type: 'link',
-                    title: 'Voir toutes les publications',
-                    link: ''
-                }
-            ]
-        },
-        data: '',
-        location: {
-            zone: 2,
-            order: 2
-        }
-    },
-    {
-        id: 6,
-        title: 'Evolution types de procédure',
-        icons: 'fa fa-bar-chart',
-        options: {
-            toggle: {
-                active: false,
-                icons: '',
-                title: ''
-            },
-            close: {
-                active: false,
-                icons: '',
-                title: ''
-            },
-            collapse: {
-                active: false,
-                icons: '',
-                title: ''
-            },
-            actions: {
-                active: false,
-                icons: '',
-                title: 'actions',
-                list: [
-                    {
-                        type: 'item',
-                        title: 'Action',
-                        fn: ''
-                    },
-                    {
-                        type: 'item',
-                        title: 'Another action',
-                        fn: ''
-                    },
-                    {
-                        type: 'item',
-                        title: 'Something else here',
-                        fn: ''
-                    },
-                    {
-                        type: 'divider',
-                        title: '',
-                        fn: ''
-                    },
-                    {
-                        type: 'item',
+                        type: 'ITEM',
                         title: 'Separated link',
                         fn: ''
                     }
@@ -396,6 +278,149 @@ exports.panel = [
             list: []
         },
         data: '',
+        urlData: 'http://localhost:3000/news',
+        location: {
+            zone: 3,
+            order: 2
+        }
+    },
+    {
+        id: 5,
+        type: {
+            category: 'LIST',
+            subcategory: ''
+        },
+        title: 'Dernières publications',
+        icons: 'fa fa-file',
+        options: {
+            toggle: {
+                active: false,
+                icons: '',
+                title: ''
+            },
+            close: {
+                active: true,
+                icons: '',
+                title: ''
+            },
+            collapse: {
+                active: true,
+                icons: '',
+                title: ''
+            },
+            actions: {
+                active: false,
+                icons: '',
+                title: 'actions',
+                list: [
+                    {
+                        type: 'ITEM',
+                        title: 'Action',
+                        fn: ''
+                    },
+                    {
+                        type: 'ITEM',
+                        title: 'Another action',
+                        fn: ''
+                    },
+                    {
+                        type: 'ITEM',
+                        title: 'Something else here',
+                        fn: ''
+                    },
+                    {
+                        type: 'divider',
+                        title: '',
+                        fn: ''
+                    },
+                    {
+                        type: 'ITEM',
+                        title: 'Separated link',
+                        fn: ''
+                    }
+
+                ]
+            }
+        },
+        footer: {
+            list: [
+                {
+                    type: 'LINK',
+                    title: 'Voir toutes les publications',
+                    link: ''
+                }
+            ]
+        },
+        data: '',
+        urlData: '',
+        location: {
+            zone: 2,
+            order: 2
+        }
+    },
+    {
+        id: 6,
+        type: {
+            category: 'CHART',
+            subcategory: ''
+        },
+        title: 'Evolution types de procédure',
+        icons: 'fa fa-bar-chart',
+        options: {
+            toggle: {
+                active: false,
+                icons: '',
+                title: ''
+            },
+            close: {
+                active: true,
+                icons: '',
+                title: ''
+            },
+            collapse: {
+                active: true,
+                icons: '',
+                title: ''
+            },
+            actions: {
+                active: false,
+                icons: '',
+                title: 'actions',
+                list: [
+                    {
+                        type: 'ITEM',
+                        title: 'Action',
+                        fn: ''
+                    },
+                    {
+                        type: 'ITEM',
+                        title: 'Another action',
+                        fn: ''
+                    },
+                    {
+                        type: 'ITEM',
+                        title: 'Something else here',
+                        fn: ''
+                    },
+                    {
+                        type: 'divider',
+                        title: '',
+                        fn: ''
+                    },
+                    {
+                        type: 'ITEM',
+                        title: 'Separated link',
+                        fn: ''
+                    }
+
+                ]
+            }
+        },
+        footer: {
+            list: []
+        },
+        data: '',
+        urlData: '',
         location: {
             zone: 4,
             order: 1

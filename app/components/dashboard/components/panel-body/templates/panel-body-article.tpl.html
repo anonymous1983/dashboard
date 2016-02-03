@@ -1,0 +1,33 @@
+<div class="panel-body-article-wrap {{ panelBodyObj.type.category | toTypeCategoryClass}}">
+
+    <ul class="list-unstyled articles article-list">
+        <li *ngFor="#article of articles; #i=index">
+
+            <article class="article article-item"
+                     *ngIf="i < offset">
+
+                <h4 class="title">
+                    <a href=""
+                       title="{{article.title}}">{{article.title}}</a>
+                    <span class="date">{{article.date}}</span>
+                </h4>
+
+                <div class="content">
+                    <p>{{article.data}}</p>
+                </div>
+
+                <div class="links"
+                     *ngIf="article.links.length">
+                    <a href="{{link.url}}"
+                       target="{{link.target}}"
+                       title="{{link.title}}"
+                       *ngFor="#link of article.links; #i=index">{{link.title}}</a>
+                </div>
+
+            </article>
+
+        </li>
+        <li *ngIf="offset < articles.length"><a style="display: block; text-align: center" class="more" (click)="moreAll()">Plus d'actualités</a></li>
+    </ul>
+    <div class="article-full-screen"></div>
+</div>

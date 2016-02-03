@@ -9,7 +9,7 @@ import {Injectable} from 'angular2/core';
 import {URLSearchParams} from 'angular2/http';
 import {isPresent, isJsObject } from 'angular2/src/facade/lang';
 
-import {AtexoPathConstant, AtexoRestConstant} from '../../constants/atexo.constant';
+import {AtexoPathConstant, AtexoRestConstant, RequestUrlType} from '../../constants/atexo.constant';
 
 
 @Injectable()

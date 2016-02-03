@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="pull-left">
                     <h3 class="panel-title">
-                        <i class="panel.icons"></i>
+                        <i class="{{panelObj.icons}}"></i>
                         {{panelObj.title}}
                     </h3>
                 </div>
@@ -37,9 +37,7 @@
     <div class="panel-body collapse"
          aria-expanded="true"
          [ngClass]="{collapse: collapseClass}">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu lectus arcu. Morbi at sapien
-            leo! Mauris sed lectus et est commodo tincidunt. Integer tincidunt mattis tortor, sed dignissim
-            felis condimentum vitae! Nam orci orci;</p>
+        <panel-body [panelBodyObj]="panelObj"></panel-body>
     </div>
     <!-- End Body -->
 
@@ -52,7 +50,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="pull-right">
-                    <a href="" *ngIf="panelObj.footer.list[0].type === 'link'">
+                    <a href="" *ngIf="panelObj.footer.list[0].type === 'LINK'">
                         {{panelObj.footer.list[0].title}}
                         <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
                     </a>
