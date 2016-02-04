@@ -10,6 +10,8 @@ import {URLSearchParams} from 'angular2/http';
 import {isPresent, isJsObject } from 'angular2/src/facade/lang';
 
 import {AtexoPathConstant, AtexoRestConstant, RequestUrlType} from '../../constants/atexo.constant';
+import construct = Reflect.construct;
+import any = jasmine.any;
 
 
 @Injectable()
@@ -42,6 +44,31 @@ export class Util {
 
     RequestOptions() {
         return new RequestOptions();
+    }
+
+    Grep(arr, callback) {
+        let newArr = [],
+            len = arr.length,
+            i;
+        for (i = 0; i < len; i++) {
+            var e = arr[i];
+            if (callback(e)) {
+                newArr.push(e);
+            }
+        }
+        return newArr;
+    }
+
+    Map(arr, callback) {
+        let newArr = [],
+            len = arr.length,
+            i;
+        for (i = 0; i < len; i++) {
+            var e = arr[i];
+            var n = callback(e);
+            newArr.push(n);
+        }
+        return newArr;
     }
 
 }

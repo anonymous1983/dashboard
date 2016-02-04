@@ -2,28 +2,76 @@ import {Component, View, ElementRef, Input} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
 import {HTTP_PROVIDERS, Http, RequestOptions, Request, Response, RequestMethod} from 'angular2/http';
 
-import {ToTypeCategoryClassPipe} from '../../../../common/pipe/atexo.pipe';
+import {ToClassPipe} from '../../../../common/pipe/atexo.pipe';
+
+import {PanelBodyEditorProvider} from './providers/panel-body-editor.provider';
+
+import {Note} from './entitys/note.entity'
 
 @Component({
-    selector: 'panel-body-editor'
+    selector: 'panel-body-editor',
+    providers: [PanelBodyEditorProvider]
 
     //inputs: ['panelObj']
 })
 
 @View({
     templateUrl: './app/components/dashboard/components/panel-body/templates/panel-body-editor.tpl.html',
-    pipes: [ToTypeCategoryClassPipe]
+    pipes: [ToClassPipe]
+
 })
 export class PanelBodyEditor {
 
     @Input() panelBodyObj;
+    panelBodyEditorProvider:PanelBodyEditorProvider;
+    notes:Object[] = [];
+    editBoolean:boolean = false;
 
-    constructor(private el:ElementRef) {
+    constructor(private el:ElementRef, panelBodyEditorProvider:PanelBodyEditorProvider) {
         this.el = el;
+        this.panelBodyEditorProvider = panelBodyEditorProvider;
+
     }
 
     ngOnInit() {
+        this.panelBodyEditorServiceGet(this.panelBodyObj.urlData);
+
         return true;
+    }
+
+    panelBodyEditorServiceGet(url) {
+
+        this.panelBodyEditorProvider.get(url).subscribe((res:Response) => {
+
+            if (res.status === 200) {
+                //this.notes = res.json();
+
+                res.json().forEach((obj) => {
+                    this.notes.push( new Note(obj));
+                });
+            }
+
+        });
+    }
+
+    ondblclick(note:Note) {
+        this.edit(note);
+        return false;
+    }
+
+    cancel(note:Note) {
+        note.editing = false;
+        return false;
+    }
+
+    edit(note:Note) {
+        note.editing = true;
+        return false;
+    }
+
+    save(note:Note) {
+        note.editing = false;
+        return false;
     }
 
 }

@@ -1,7 +1,9 @@
-import {Component, View, ElementRef, Input} from 'angular2/core';
+import {Component, View, ElementRef, Input, ViewEncapsulation} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
 import {HTTP_PROVIDERS, Http, RequestOptions, Request, Response, RequestMethod} from 'angular2/http';
 import {PanelBody} from '../panel-body/panel-body.component';
+
+import {ToClassPipe} from '../../../../common/pipe/atexo.pipe';
 
 @Component({
     selector: 'panel'
@@ -10,8 +12,11 @@ import {PanelBody} from '../panel-body/panel-body.component';
 
 @View({
     templateUrl: './app/components/dashboard/components/panel/templates/panel.tpl.html',
-    directives: [PanelBody]
+    directives: [PanelBody],
+    pipes: [ToClassPipe],
+    encapsulation: ViewEncapsulation.Emulated
 })
+
 export class Panel {
 
     @Input() panelObj;

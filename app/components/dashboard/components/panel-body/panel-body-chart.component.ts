@@ -2,7 +2,7 @@ import {Component, View, ElementRef, Input} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
 import {HTTP_PROVIDERS, Http, RequestOptions, Request, Response, RequestMethod} from 'angular2/http';
 
-import {ToTypeCategoryClassPipe} from '../../../../common/pipe/atexo.pipe';
+import {ToClassPipe} from '../../../../common/pipe/atexo.pipe';
 
 @Component({
     selector: 'panel-body-chart'
@@ -11,7 +11,7 @@ import {ToTypeCategoryClassPipe} from '../../../../common/pipe/atexo.pipe';
 
 @View({
     templateUrl: './app/components/dashboard/components/panel-body/templates/panel-body-chart.tpl.html',
-    pipes: [ToTypeCategoryClassPipe]
+    pipes: [ToClassPipe]
 })
 export class PanelBodyChart {
 

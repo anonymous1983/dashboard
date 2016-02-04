@@ -2,12 +2,13 @@ import {Component, View, ElementRef, Input} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
 import {HTTP_PROVIDERS, Http, RequestOptions, Request, Response, RequestMethod} from 'angular2/http';
 
-import {ToTypeCategoryClassPipe} from '../../../../common/pipe/atexo.pipe';
+
+import {ToClassPipe, ToDatePipe} from '../../../../common/pipe/atexo.pipe';
 
 import {PanelBodyArticleProvider} from './providers/panel-body-article.provider';
 
+import {Util} from '../../../../common/services/atexo.service';
 import {AtexoSpinner} from '../../../../common/components/atexo-spinner.component';
-import {isNumber} from "angular2/src/facade/lang";
 
 @Component({
     selector: 'panel-body-article',
@@ -17,7 +18,7 @@ import {isNumber} from "angular2/src/facade/lang";
 
 @View({
     templateUrl: './app/components/dashboard/components/panel-body/templates/panel-body-article.tpl.html',
-    pipes: [ToTypeCategoryClassPipe],
+    pipes: [ToClassPipe, ToDatePipe],
     directives: [AtexoSpinner]
 })
 export class PanelBodyArticle {
@@ -26,16 +27,13 @@ export class PanelBodyArticle {
 
     panelBodyArticleProvider:PanelBodyArticleProvider;
     articles:Object[] = [];
-    limit:number;
+    articleSelected:Object;
+    limit:number = 2;
     offset:number;
 
     constructor(private el:ElementRef, panelBodyArticleProvider:PanelBodyArticleProvider) {
         this.el = el;
-
-        this.limit = 2;
         this.offset = this.limit;
-
-
         this.panelBodyArticleProvider = panelBodyArticleProvider;
     }
 
@@ -52,6 +50,10 @@ export class PanelBodyArticle {
 
             if (res.status === 200) {
                 this.articles = res.json();
+
+                /*this.articles.forEach((obj) => {
+                    obj['date'] = new Date(1988,3,15);
+                });*/
             }
 
         });
@@ -61,8 +63,25 @@ export class PanelBodyArticle {
         this.offset += this.limit;
     }
 
-    moreAll() {
+    moreArticles() {
         this.offset = this.articles.length;
+    }
+
+    lessArticles() {
+        this.offset = this.limit;
+    }
+
+    selectArticle(id:number) {
+        this.articleSelected = Util.getInstance().Grep(this.articles, function (item) {
+            return (item.id === id);
+        });
+        this.articleSelected = this.articleSelected[0];
+        return false;
+    }
+
+    closeSelectArticle() {
+        this.articleSelected = null;
+        return false;
     }
 
 }

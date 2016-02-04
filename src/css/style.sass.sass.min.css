@@ -1,18 +1,28 @@
 .dashboard {
   padding: 0.625em 0; }
 
-.dashboard .alert {
-  border-radius: 0.375em;
-  padding: 0.625em; }
-
-.dashboard .alert.alert-info .title {
-  color: #3D6BA6; }
-
 .dashboard .bloc-toggle .panel-title {
   display: block;
   text-decoration: none;
   color: #3d6ba6;
   font-size: 1em; }
+
+.overlay-options {
+  padding-left: 0;
+  list-style: none;
+  display: none; }
+
+.overlay-options.top {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 100; }
+
+.overlay-options .option-item {
+  padding: 2px 6px;
+  overflow: hidden;
+  display: block;
+  line-height: 16px; }
 
 .panel.close {
   display: none; }
@@ -20,13 +30,29 @@
 .panel .widget-controls a {
   text-decoration: none; }
 
-.panel .more {
+.panel .btn-more {
   display: block;
   text-align: center;
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
   font-size: 0.875em; }
+
+.panel .panel-body-editor-wrap {
+  position: relative; }
+
+.panel .panel-body-editor-wrap .editor-view {
+  min-height: 30px; }
+
+.panel .panel-body-editor-wrap .editor-textarea .textarea {
+  width: 100%;
+  min-height: 50px;
+  max-height: 50px;
+  border: 0;
+  margin: 0;
+  padding: 5px;
+  resize: none;
+  overflow: auto; }
 
 .panel-body-article-wrap {
   max-height: 200px;
@@ -40,25 +66,25 @@
 .articles li:first-child .article {
   border-top: 0; }
 
-.articles .article {
+.article {
   border-top: 1px solid #F0F0F0;
   padding-bottom: 10px;
   padding-top: 5px; }
 
-.articles .article p {
+.article p {
   margin: 0 0 5px; }
 
-.articles .article .title {
+.article .title {
   color: #3D6BA6;
   font-size: 1em;
   font-weight: 600; }
 
-.articles .article .date {
+.article .date {
   float: right;
   color: #777;
   font-size: 0.785em; }
 
-.articles .article .content {
+.article .content {
   color: #666666; }
 
 .article-full-screen {
@@ -68,6 +94,47 @@
   right: 0;
   bottom: 0;
   background: #fff; }
+
+.article-full-screen .article {
+  border: 0; }
+
+.article-full-screen .article .header {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0; }
+
+.article-full-screen .article .body {
+  position: absolute;
+  top: 47px;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.article-full-screen .article .title {
+  margin-bottom: 5px; }
+
+.article-full-screen .article .date {
+  float: none;
+  display: block;
+  margin-bottom: 10px; }
+
+.note {
+  position: relative;
+  padding: 10px 30px 5px 5px;
+  border-bottom: 1px solid #E0E0E0; }
+
+.note:hover {
+  background-color: #F3F3F3; }
+
+.note:hover .overlay-options {
+  display: block; }
+
+.note:hover .editor-view {
+  background-color: #F3F3F3; }
+
+.note .editor-view {
+  background-color: #FFFFFF; }
 
 body {
   font: 11px Arial, Helvetica, sans-serif;

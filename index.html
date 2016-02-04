@@ -1,5 +1,6 @@
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
     <base href="/">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -13,18 +14,18 @@
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
     <script src="node_modules/angular2/bundles/http.dev.js"></script>
     <script>
-      System.config({
-        packages: {        
-          app: {
-            format: 'register',
-            defaultExtension: 'js'
-          }
-        }
-      });
-      System.import('app/bootstrap').then(null, console.error.bind(console));
+        System.config({
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('app/bootstrap').then(null, console.error.bind(console));
     </script>
-  </head>
-  <body>
-    <my-app>Loading...</my-app>
-  </body>
+</head>
+<body>
+<my-app>Loading...</my-app>
+</body>
 </html>

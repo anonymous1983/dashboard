@@ -5,6 +5,7 @@ module.exports = function () {
     var panel_json = require('./json/panel');
     var news_json = require('./json/news');
     var bienvenue_json = require('./json/bienvenue');
+    var blocnotes_json = require('./json/blocnotes');
 
     return {
         panel: panel_json.panel,
@@ -19,6 +20,8 @@ module.exports = function () {
 
         news: news_json.news,
 
-        bienvenue: bienvenue_json.bienvenue
+        bienvenue: bienvenue_json.bienvenue,
+
+        blocnotes: blocnotes_json.blocnotes
     }
 }

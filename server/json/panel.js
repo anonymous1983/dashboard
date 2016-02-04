@@ -5,6 +5,7 @@ exports.panel = [
             category: 'EDITOR',
             subcategory: ''
         },
+        name:'note',
         title: 'Bloc Notes',
         icons: 'fa fa-clipboard',
         options: {
@@ -16,12 +17,12 @@ exports.panel = [
             close: {
                 active: true,
                 icons: 'fa fa-close',
-                title: 'Close'
+                title: 'Fermer le panneau'
             },
             collapse: {
                 active: true,
                 icons: 'fa fa-minus',
-                title: 'Collapse'
+                title: 'Réduire le panneau'
             },
             actions: {
                 active: false,
@@ -61,7 +62,7 @@ exports.panel = [
             list: []
         },
         data: '',
-        urlData: 'http://localhost:3000/bienvenue',
+        urlData: 'http://localhost:3000/blocnotes',
         location: {
             zone: 2,
             order: 2
@@ -73,6 +74,7 @@ exports.panel = [
             category: 'LIST',
             subcategory: ''
         },
+        name:'consultations',
         title: 'Mes consultations',
         icons: 'fa fa-folder',
         options: {
@@ -148,6 +150,7 @@ exports.panel = [
             category: 'SEARCH',
             subcategory: ''
         },
+        name:'search',
         title: 'Recherche rapide',
         icons: 'fa fa-search fa-flip-horizontal',
         options: {
@@ -222,6 +225,7 @@ exports.panel = [
             category: 'ARTICLE',
             subcategory: ''
         },
+        name: 'news',
         title: 'Actualités',
         icons: 'fa fa-newspaper-o',
         options: {
@@ -290,6 +294,7 @@ exports.panel = [
             category: 'LIST',
             subcategory: ''
         },
+        name: 'publication',
         title: 'Dernières publications',
         icons: 'fa fa-file',
         options: {
@@ -364,6 +369,7 @@ exports.panel = [
             category: 'CHART',
             subcategory: ''
         },
+        name: 'evolution-procedure',
         title: 'Evolution types de procédure',
         icons: 'fa fa-bar-chart',
         options: {
