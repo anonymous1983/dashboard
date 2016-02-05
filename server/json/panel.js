@@ -131,7 +131,6 @@ exports.panel = [
             list: [
                 {
                     type: 'LINK',
-
                     title: 'Toutes mes consultations',
                     link: ''
                 }
@@ -428,7 +427,7 @@ exports.panel = [
         data: '',
         urlData: '',
         location: {
-            zone: 4,
+            zone: 1,
             order: 1
         }
     }

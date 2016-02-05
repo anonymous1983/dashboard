@@ -6,7 +6,7 @@ import {ToClassPipe} from '../../../../common/pipe/atexo.pipe';
 
 import {PanelBodyEditorProvider} from './providers/panel-body-editor.provider';
 
-import {Note} from './entitys/note.entity'
+import {Note} from './entitys/note.entity';
 
 @Component({
     selector: 'panel-body-editor',
@@ -24,18 +24,17 @@ export class PanelBodyEditor {
 
     @Input() panelBodyObj;
     panelBodyEditorProvider:PanelBodyEditorProvider;
-    notes:Object[] = [];
+    notes:Array<Note>;
     editBoolean:boolean = false;
+    editorTextarea:string;
 
-    constructor(private el:ElementRef, panelBodyEditorProvider:PanelBodyEditorProvider) {
-        this.el = el;
+    constructor(panelBodyEditorProvider:PanelBodyEditorProvider) {
         this.panelBodyEditorProvider = panelBodyEditorProvider;
-
+        this.notes = [];
     }
 
     ngOnInit() {
         this.panelBodyEditorServiceGet(this.panelBodyObj.urlData);
-
         return true;
     }
 
@@ -47,7 +46,7 @@ export class PanelBodyEditor {
                 //this.notes = res.json();
 
                 res.json().forEach((obj) => {
-                    this.notes.push( new Note(obj));
+                    this.notes.push(new Note(obj, obj.content));
                 });
             }
 
@@ -71,6 +70,15 @@ export class PanelBodyEditor {
 
     save(note:Note) {
         note.editing = false;
+        note.data['content'] = note.draft;
+        return false;
+    }
+
+    remove(note:Note) {
+        return false;
+    }
+
+    add() {
         return false;
     }
 

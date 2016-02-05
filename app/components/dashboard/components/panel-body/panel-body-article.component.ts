@@ -61,14 +61,17 @@ export class PanelBodyArticle {
 
     more() {
         this.offset += this.limit;
+        return false;
     }
 
     moreArticles() {
         this.offset = this.articles.length;
+        return false;
     }
 
     lessArticles() {
         this.offset = this.limit;
+        return false;
     }
 
     selectArticle(id:number) {

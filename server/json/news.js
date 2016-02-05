@@ -7,7 +7,7 @@ exports.news = [
         links: [
             {
                 type: 'link',
-                title: 'Lire la suite',
+                title: 'Télécharger le document',
                 target: '_blank',
                 url: 'http://m14-base-documentaire.apps.paris.fr/basedocumentaire/document?id=475&id_attribute=88'
             }

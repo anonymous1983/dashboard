@@ -34,47 +34,7 @@ http://www.codeandyou.com/2016/01/difference-between-component-and-directive-in-
 
 https://www.reddit.com/r/Angular2/
 
+https://www.youtube.com/watch?v=x296y5mErWI
+https://github.com/gdi2290/ng-vegas-angular2-d3
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Header -->
-<div class="panel-heading  ui-sortable-handle">
-    <h3 class="panel-title">
-        <i class="{{panel.icons}}"></i>
-        {{panel.title}}
-    </h3>
-</div>
-<!-- End Header -->
-
-<!-- Body -->
-<div class="panel-body">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu lectus arcu. Morbi at sapien
-        leo! Mauris sed lectus et est commodo tincidunt. Integer tincidunt mattis tortor, sed dignissim
-        felis condimentum vitae! Nam orci orci;</p>
-</div>
-<!-- End Body -->
-
-
-<!-- Footer -->
-<div class="panel-footer text-right" *ngIf="panel.footer.list.length">
-    <a href="#">
-        Toutes les actualités
-        <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
-    </a>
-</div>
-<!-- End Footer -->
+http://valor-software.com/ng2-charts/

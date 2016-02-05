@@ -1,3 +1,11 @@
+.atexoui-link {
+  display: inline-block; }
+  .atexoui-link.center {
+    display: table;
+    text-align: center;
+    margin: 0 auto;
+    cursor: pointer; }
+
 .dashboard {
   padding: 0.625em 0; }
   .dashboard .bloc-toggle .panel-title {
