@@ -38,3 +38,9 @@ https://www.youtube.com/watch?v=x296y5mErWI
 https://github.com/gdi2290/ng-vegas-angular2-d3
 
 http://valor-software.com/ng2-charts/
+
+https://github.com/MrRio/jsPDF
+http://mrrio.github.io/jsPDF/#
+https://parall.ax/services
+
+

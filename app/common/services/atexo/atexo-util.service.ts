@@ -11,7 +11,6 @@ import {isPresent, isJsObject } from 'angular2/src/facade/lang';
 
 import {AtexoPathConstant, AtexoRestConstant, RequestUrlType} from '../../constants/atexo.constant';
 import construct = Reflect.construct;
-import any = jasmine.any;
 
 
 @Injectable()
