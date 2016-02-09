@@ -5,6 +5,8 @@ export class Note {
     deleted:Boolean;
     draft:string;
 
+    noteObject:NoteObject;
+
     private _data:Object;
 
     get data() {
@@ -23,4 +25,11 @@ export class Note {
         this.data = obj;
     }
 
+}
+
+interface NoteObject {
+    id: number;
+    title: string;
+    date: string;
+    content: string;
 }

@@ -34,7 +34,7 @@ export class AtexoChartsJs {
     private options:any = {responsive: true};
     private _chartType:string;
     private series:Array<any> = [];
-    private colours:Array<any> = [];
+    private _colours:Array<any> = [];
     private legend:boolean;
     private legendTemplate:any;
     private initFlag:boolean = false;
@@ -137,9 +137,13 @@ export class AtexoChartsJs {
         return true;
     }
 
+    // private get data
+
     private get data() {
         return this._data;
     }
+
+    // private set data
 
     private set data(value) {
         this._data = value;
@@ -148,12 +152,31 @@ export class AtexoChartsJs {
         }
     }
 
+    // private get chartType
+
     private get chartType() {
         return this._chartType;
     }
 
+    //private set chartType
+
     private set chartType(value) {
         this._chartType = value;
+        if (this.initFlag && this._chartType && this._chartType.length > 0) {
+            this.refresh();
+        }
+    }
+
+    // private get colours
+
+    private get colours() {
+        return this._colours;
+    }
+
+    // private set colours
+
+    private set colours(value) {
+        this._colours = value;
         if (this.initFlag && this._chartType && this._chartType.length > 0) {
             this.refresh();
         }
@@ -167,28 +190,6 @@ export class AtexoChartsJs {
         } else {
             this.parent.insertAdjacentHTML('beforeend', this.chart.generateLegend());
         }
-
-        //console.log(this.chart.generateLegend());
-        //console.log(this.parent.getElementsByClassName('bar-legend'));
-
-        //console.log(this.parent.getElementsByClassName('bar-legend')[0].childNodes);
-
-        /*for (var key in this.parent.getElementsByClassName('bar-legend')[0].childNodes) {
-         console.log('Type: ' + typeof key);
-         console.log(this.parent.getElementsByClassName('bar-legend')[0].childNodes[key].children);
-
-
-
-
-
-         }*/
-
-        //this.parent.getElementsByClassName('bar-legend')[0].childNodes;
-    }
-
-    onClickA() {
-        console.log('x');
-        return false;
     }
 
     getColour(colour:Array<number>):any {
@@ -289,7 +290,6 @@ export class AtexoChartsJs {
 
             let colourDesc:Array<number> = [this.getRandomInt(0, 255), this.getRandomInt(0, 255), this.getRandomInt(0, 255)];
             let colour = i < this.colours.length ? this.colours[i] : this.defaultsColours[i] || this.getColour(colourDesc);
-
 
             let data:any = (<any>Object).assign(colour,
                 this.getDataObject(this.series[i] || this.labels[i], this.data[i]));

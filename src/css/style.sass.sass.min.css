@@ -1,11 +1,50 @@
-.atexoui-link {
-  display: inline-block; }
-
 .atexoui-link.center {
   display: table;
   text-align: center;
   margin: 0 auto;
   cursor: pointer; }
+
+.atexoui-link.right {
+  display: table;
+  text-align: left;
+  margin: 0;
+  cursor: pointer;
+  float: right; }
+
+.atexoui-list.center {
+  display: table;
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer; }
+
+.atexoui-list.right {
+  display: table;
+  text-align: left;
+  margin: 0;
+  cursor: pointer;
+  float: right; }
+
+.atexoui-list.horizontal li {
+  display: table-cell;
+  padding: 0 2px; }
+
+.atexoui-list.horizontal li.disabled a, .atexoui-list.horizontal li.disabled a:hover, .atexoui-list.horizontal li.disabled a:active, .atexoui-list.horizontal li.disabled a:focus {
+  color: #ccc; }
+
+.atexoui-list.horizontal li.available a, .atexoui-list.horizontal li.available a:hover, .atexoui-list.horizontal li.available a:active, .atexoui-list.horizontal li.available a:focus {
+  color: #666; }
+
+.atexoui-list.horizontal li a, .atexoui-list.horizontal li a:hover, .atexoui-list.horizontal li a:active, .atexoui-list.horizontal li a:focus {
+  text-decoration: none;
+  display: block;
+  padding: 2px; }
+
+.atexoui-list.horizontal li a, .atexoui-list.horizontal li a:active, .atexoui-list.horizontal li a:focus {
+  color: #ccc;
+  font-weight: 600; }
+
+.atexoui-list.horizontal li a:hover {
+  color: #999; }
 
 .dashboard {
   padding: 0.625em 0; }
@@ -131,7 +170,7 @@
 .note {
   position: relative;
   padding: 10px 30px 5px 5px;
-  border-bottom: 1px solid #E0E0E0; }
+  border-bottom: 1px dashed #E0E0E0; }
 
 .note:hover {
   background-color: #F3F3F3; }
@@ -144,6 +183,12 @@
 
 .note .editor-view {
   background-color: #FFFFFF; }
+
+.panel-body-type-chart .chart-js-series {
+  list-style: none; }
+
+.panel-body-type-chart .chart-js-series li {
+  display: inline-block; }
 
 body {
   font: 11px Arial, Helvetica, sans-serif;
