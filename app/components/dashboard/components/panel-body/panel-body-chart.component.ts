@@ -4,12 +4,16 @@ import {RouteParams} from 'angular2/router';
 import {HTTP_PROVIDERS, Http, RequestOptions, Request, Response, RequestMethod} from 'angular2/http';
 
 import {ToClassPipe} from '../../../../common/pipe/atexo.pipe';
+import {Convert} from '../../../../common/services/atexo.service';
 import {AtexoChartsJs} from '../../../../common/components/atexo-charts.component';
 
-declare var Chart:any;
+import {PanelBodyChartProvider} from './providers/panel-body-chart.provider';
+
+//PanelBodyEditorProvider
 
 @Component({
-    selector: 'panel-body-chart'
+    selector: 'panel-body-chart',
+    providers: [PanelBodyChartProvider]
     //inputs: ['panelObj']
 })
 
@@ -22,9 +26,10 @@ declare var Chart:any;
 export class PanelBodyChart {
 
     @Input() panelBodyObj;
+    panelBodyChartProvider:PanelBodyChartProvider;
 
-    constructor(private element:ElementRef) {
-        this.element = element;
+    constructor(panelBodyChartProvider:PanelBodyChartProvider) {
+        this.panelBodyChartProvider = panelBodyChartProvider;
         for (let i = 0; i < this.lineChartSeries.length; i++) {
             this.lineChartSeriesColors.push(this.lineChartColoursOld[i].strokeColor);
             this.lineChartSeriesActive.push(true);
@@ -32,12 +37,33 @@ export class PanelBodyChart {
     }
 
     private ngOnInit() {
+        this.panelBodyChartServiceGet(this.panelBodyObj.urlData);
         return true;
     }
 
     private ngAfterViewInit() {
         return true;
     }
+
+    panelBodyChartServiceGet(url) {
+
+        this.panelBodyChartProvider.get(url).subscribe((res:Response) => {
+
+            if (res.status === 200) {
+                //this.notes = res.json();
+                //console.log(res.text());
+
+                Convert.getInstance().cvsToJson(res.text());
+                let ch = Convert.getInstance().getArrayData();
+
+
+                console.log(ch[0]);
+
+            }
+
+        });
+    }
+
 
     public updateChart(i?:number) {
         // toggle ChartSerie

@@ -9,9 +9,10 @@ import {Injectable} from 'angular2/core';
 
 @Injectable()
 export class Progress {
-    nbrProgress:number = 0;
     static instance:Progress;
     static isCreating:Boolean = false;
+
+    private nbrProgress:number = 0;
 
     constructor() {
         if (!Progress.isCreating) {

@@ -1,0 +1,82 @@
+<div class="dashboard">
+
+    <!--Debut Message accueil-->
+    <div role="alert" class="alert alert-info">
+        <strong>Message d'info</strong>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis egestas odio, nec elementum metus. Nulla
+            facilisis est nec nibh interdum, at faucibus sapien vehicula.</p>
+    </div>
+    <div role="alert" class="alert alert-warning">
+        <strong>Message de warning</strong>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis egestas odio, nec elementum metus. Nulla
+            facilisis est nec nibh interdum, at faucibus sapien vehicula.</p>
+    </div>
+    <div role="alert" class="alert alert-danger">
+        <strong>Message d'alerte</strong>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis egestas odio, nec elementum metus. Nulla
+            facilisis est nec nibh interdum, at faucibus sapien vehicula.</p>
+    </div>
+    <!--Fin Message accueil-->
+
+    <div class="row ui-sortable">
+
+        <div location="zone-a"
+             class="location-zone-a column col-md-12 col-sm-12 col-xs-12 ui-sortable"
+             id="location-zone-a">
+
+            <!-- Panel -->
+            <panel [panelObj]="panelObj"
+                   *ngFor="#panelObj of panelsZones.a; #i=index"></panel>
+            <!-- End Panel -->
+
+        </div>
+
+        <div location="zone-b"
+             class="column col-md-6 col-sm-6 col-xs-6 ui-sortable"
+             id="location-zone-b">
+
+            <!-- Panel -->
+            <panel [panelObj]="panelObj"
+                   *ngFor="#panelObj of panelsZones.b; #i=index"></panel>
+            <!-- End Panel -->
+
+        </div>
+
+        <div location="zone-c"
+             class="column col-md-6 col-sm-6 col-xs-6 ui-sortable"
+             id="location-zone-c">
+
+            <!-- Panel -->
+            <panel [panelObj]="panelObj"
+                   *ngFor="#panelObj of panelsZones.c; #i=index"></panel>
+            <!-- End Panel -->
+
+        </div>
+
+        <div location="zone-d"
+             class="location-zone-a column col-md-12 col-sm-12 col-xs-12 ui-sortable"
+             id="location-zone-d">
+
+            <!-- Panel -->
+            <panel [panelObj]="panelObj"
+                   *ngFor="#panelObj of panelsZones.d; #i=index"></panel>
+            <!-- End Panel -->
+
+        </div>
+
+        <div location="zone-z"
+             class="location-zone-a column col-md-12 col-sm-12 col-xs-12 ui-sortable"
+             id="location-zone-z">
+
+            <!-- Panel -->
+            <panel [panelObj]="panelObj"
+                   *ngFor="#panelObj of panelsZones.z; #i=index"></panel>
+            <!-- End Panel -->
+
+        </div>
+
+
+    </div>
+
+
+</div>

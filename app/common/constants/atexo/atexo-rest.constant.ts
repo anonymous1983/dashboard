@@ -9,13 +9,13 @@ import {RequestMethod} from 'angular2/http';
 import {RequestUrlType} from './atexo-enum.constant';
 
 export const AtexoRestConstant = {
-    baseUrl: 'http://localhost:3000/',
+    baseUrl: 'http://localhost:5600/',
     _format: 'json',
     request: {
         panel: {
             all: {
                 method: RequestMethod.Get,
-                url: 'panel',
+                url: 'server/mocks/panel.json',
                 type: RequestUrlType.Relative,
                 _format: 'json',
                 parameter: {

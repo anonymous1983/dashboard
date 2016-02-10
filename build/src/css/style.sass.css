@@ -1,0 +1,170 @@
+.atexoui-link.center {
+  display: table;
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer; }
+
+.atexoui-link.right {
+  display: table;
+  text-align: left;
+  margin: 0;
+  cursor: pointer;
+  float: right; }
+
+.atexoui-list.center {
+  display: table;
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer; }
+
+.atexoui-list.right {
+  display: table;
+  text-align: left;
+  margin: 0;
+  cursor: pointer;
+  float: right; }
+
+.atexoui-list.horizontal li {
+  display: table-cell;
+  padding: 0 2px; }
+  .atexoui-list.horizontal li.disabled a, .atexoui-list.horizontal li.disabled a:hover, .atexoui-list.horizontal li.disabled a:active, .atexoui-list.horizontal li.disabled a:focus {
+    color: #ccc; }
+  .atexoui-list.horizontal li.available a, .atexoui-list.horizontal li.available a:hover, .atexoui-list.horizontal li.available a:active, .atexoui-list.horizontal li.available a:focus {
+    color: #666; }
+  .atexoui-list.horizontal li a, .atexoui-list.horizontal li a:hover, .atexoui-list.horizontal li a:active, .atexoui-list.horizontal li a:focus {
+    text-decoration: none;
+    display: block;
+    padding: 2px; }
+  .atexoui-list.horizontal li a, .atexoui-list.horizontal li a:active, .atexoui-list.horizontal li a:focus {
+    color: #ccc;
+    font-weight: 600; }
+  .atexoui-list.horizontal li a:hover {
+    color: #999; }
+
+.dashboard {
+  padding: 0.625em 0; }
+  .dashboard .bloc-toggle .panel-title {
+    display: block;
+    text-decoration: none;
+    color: #3d6ba6;
+    font-size: 1em; }
+
+.overlay-options {
+  padding-left: 0;
+  list-style: none;
+  display: none; }
+  .overlay-options.top {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 100; }
+  .overlay-options .option-item {
+    padding: 2px 6px;
+    overflow: hidden;
+    display: block;
+    line-height: 16px; }
+
+.panel.close {
+  display: none; }
+
+.panel .widget-controls a {
+  text-decoration: none; }
+
+.panel .btn-more {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 0.875em; }
+
+.panel .panel-body-editor-wrap {
+  position: relative; }
+  .panel .panel-body-editor-wrap .editor-view {
+    min-height: 30px; }
+  .panel .panel-body-editor-wrap .editor-textarea .textarea {
+    width: 100%;
+    min-height: 50px;
+    max-height: 50px;
+    border: 0;
+    margin: 0;
+    padding: 5px;
+    resize: none;
+    overflow: auto; }
+
+.panel-body-article-wrap {
+  max-height: 200px;
+  overflow: hidden;
+  position: relative; }
+
+.articles {
+  max-height: 200px;
+  overflow: auto; }
+  .articles li:first-child .article {
+    border-top: 0; }
+
+.article {
+  border-top: 1px solid #F0F0F0;
+  padding-bottom: 10px;
+  padding-top: 5px; }
+  .article p {
+    margin: 0 0 5px; }
+  .article .title {
+    color: #3D6BA6;
+    font-size: 1em;
+    font-weight: 600; }
+  .article .date {
+    float: right;
+    color: #777;
+    font-size: 0.785em; }
+  .article .content {
+    color: #666666; }
+
+.article-full-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff; }
+  .article-full-screen .article {
+    border: 0; }
+    .article-full-screen .article .header {
+      position: absolute;
+      top: 5px;
+      left: 0;
+      right: 0; }
+    .article-full-screen .article .body {
+      position: absolute;
+      top: 47px;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+    .article-full-screen .article .title {
+      margin-bottom: 5px; }
+    .article-full-screen .article .date {
+      float: none;
+      display: block;
+      margin-bottom: 10px; }
+
+.note {
+  position: relative;
+  padding: 10px 30px 5px 5px;
+  border-bottom: 1px dashed #E0E0E0; }
+  .note:hover {
+    background-color: #F3F3F3; }
+    .note:hover .overlay-options {
+      display: block; }
+    .note:hover .editor-view {
+      background-color: #F3F3F3; }
+  .note .editor-view {
+    background-color: #FFFFFF; }
+
+.panel-body-type-chart .chart-js-series {
+  list-style: none; }
+  .panel-body-type-chart .chart-js-series li {
+    display: inline-block; }
+
+body {
+  font: 11px Arial, Helvetica, sans-serif;
+  color: #3D6BA6; }
