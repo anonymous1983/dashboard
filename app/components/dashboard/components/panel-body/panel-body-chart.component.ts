@@ -4,7 +4,7 @@ import {RouteParams} from 'angular2/router';
 import {HTTP_PROVIDERS, Http, RequestOptions, Request, Response, RequestMethod} from 'angular2/http';
 
 import {ToClassPipe} from '../../../../common/pipe/atexo.pipe';
-import {Convert} from '../../../../common/services/atexo.service';
+import {Util, Convert} from '../../../../common/services/atexo.service';
 import {AtexoChartsJs} from '../../../../common/components/atexo-charts.component';
 
 import {PanelBodyChartProvider} from './providers/panel-body-chart.provider';
@@ -27,6 +27,8 @@ export class PanelBodyChart {
 
     @Input() panelBodyObj;
     panelBodyChartProvider:PanelBodyChartProvider;
+    // lineChart
+    private lineChartData:Array<any> = [[]];
 
     constructor(panelBodyChartProvider:PanelBodyChartProvider) {
         this.panelBodyChartProvider = panelBodyChartProvider;
@@ -57,33 +59,95 @@ export class PanelBodyChart {
                 let ch = Convert.getInstance().getArrayData();
 
 
-                console.log(ch[0]);
+                //console.log(Convert.getInstance().getArrProperty());
 
+                //console.log(Util.getInstance().Json().getByProperty(ch, new Array('annee'), new Array('2012')));
+
+                var jsonInstance:any = Util.getInstance().Json();
+                jsonInstance.setEasting(
+                    new Array(
+                        'janvier',
+                        'février',
+                        'mars',
+                        'avril',
+                        'mai',
+                        'juin',
+                        'juillet',
+                        'août',
+                        'septembre',
+                        'octobre',
+                        'novembre',
+                        'décembre')
+                );
+
+                jsonInstance.getByProperty(
+                    ch,
+                    new Array(),
+                    new Array()
+                );
+
+
+                jsonInstance.groupByProperty(['annee', 'mois', 'count']);
+
+                this.lineChartData = jsonInstance.getArrayResult();
+                this.lineChartDataOld = this.lineChartData;
+
+                this.lineChartLabels = jsonInstance.getEasting();
+
+                this.lineChartSeries = jsonInstance.getOrdered();
+
+                this.lineChartSeriesColors = [];
+                this.lineChartSeriesActive = [];
+
+                for (let i = 0; i < this.lineChartSeries.length; i++) {
+                    this.lineChartSeriesColors.push(this.lineChartColoursOld[i].strokeColor);
+                    this.lineChartSeriesActive.push(true);
+                }
             }
 
         });
     }
 
-
-    public updateChart(i?:number) {
-        // toggle ChartSerie
-        this.lineChartSeriesActive[i] = !this.lineChartSeriesActive[i];
-
-        let _lineChartData = [];
-        let _lineChartColours = [];
-        for (let j = 0; j < this.lineChartSeriesActive.length; j++) {
-            if (this.lineChartSeriesActive[j]) {
-                _lineChartColours.push(this.lineChartColoursOld[j]);
-                _lineChartData.push(this.lineChartDataOld[j]);
+    private checkUpdateChart() {
+        let i:number = 0,
+            count:number = 0;
+        for (; i < this.lineChartSeriesActive.length; i++) {
+            if (this.lineChartSeriesActive[i]) {
+                count++;
             }
         }
-        this.lineChartData = _lineChartData;
-        this.lineChartColours = _lineChartColours;
+        return (count > 0);
+    }
 
+
+    public updateChart(i ?:number) {
+
+        // toggle ChartSeries
+        this.lineChartSeriesActive[i] = !this.lineChartSeriesActive[i];
+
+        // Test if last Series
+        // you can't hide all series
+        if (this.checkUpdateChart()) {
+
+            let _lineChartData = [];
+            let _lineChartColours = [];
+            for (let j = 0; j < this.lineChartSeriesActive.length; j++) {
+                if (this.lineChartSeriesActive[j]) {
+                    _lineChartColours.push(this.lineChartColoursOld[j]);
+                    _lineChartData.push(this.lineChartDataOld[j]);
+                }
+            }
+            this.lineChartData = _lineChartData;
+            this.lineChartColours = _lineChartColours;
+
+        } else {
+            // toggle ChartSeries
+            this.lineChartSeriesActive[i] = !this.lineChartSeriesActive[i];
+        }
         return false;
     }
 
-    public updateChartType(i?:number) {
+    public updateChartType(i ?:number) {
         this.lineChartType = this.lineChartTypes[i].type;
         for (let j = 0; j < this.lineChartTypes.length; j++) {
             this.lineChartTypes[j].active = false;
@@ -94,31 +158,21 @@ export class PanelBodyChart {
         return false;
     }
 
-    // lineChart
-    private lineChartData:Array<any> = [
-        [65, 59, 80, 81, 56, 55, 40],
-        [28, 48, 40, 19, 86, 27, 90],
-        [18, 48, 77, 9, 100, 27, 40],
-        [70, 25, 42, 98, 50, 34, 45]
-    ];
+    private getLineChartOptions() {
+        return {
+            animation: true,
+            responsive: true,
+            multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>',
+            legendTemplate: ''
+        };
+    }
+
     private lineChartDataOld:Array<any> = this.lineChartData;
-    private lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-    private lineChartSeries:Array<any> = ['Series A', 'Series B', 'Series C', 'Series D'];
+    private lineChartLabels:Array<any> = [];
+    private lineChartSeries:Array<any> = [];
     private lineChartSeriesColors:Array<any> = [];
-    private lineChartSeriesActive:Array<boolean> = [];
-    private lineChartOptions:any = {
-        animation: false,
-        responsive: true,
-        multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>',
-        legendTemplate: '<ul class="<%=name.toLowerCase()%>-legend">' +
-        '<% for (var i=0; i<datasets.length; i++){%>' +
-        '<li>' +
-        '<a href="" onclick="onClickA">' +
-        '<span style="background-color:<%=datasets[i].strokeColor%>"></span>' +
-        '<%if(datasets[i].label){%><%=datasets[i].label%><%}%>' +
-        '</a></li><%}%>' +
-        '</ul>'
-    };
+    private lineChartSeriesActive:Array < boolean > = [];
+    private lineChartOptions:any = this.getLineChartOptions();
     private lineChartColours:Array<any> = [
         {
             fillColor: 'rgba(253, 216, 53,0.2)',

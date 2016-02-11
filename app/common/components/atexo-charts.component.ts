@@ -30,10 +30,10 @@ export class AtexoChartsJs {
     private parent:any;
     private chart:any;
     private _data:Array<any> = [];
-    private labels:Array<any> = [];
+    private _labels:Array<any> = [];
     private options:any = {responsive: true};
     private _chartType:string;
-    private series:Array<any> = [];
+    private _series:Array<any> = [];
     private _colours:Array<any> = [];
     private legend:boolean;
     private legendTemplate:any;
@@ -182,6 +182,40 @@ export class AtexoChartsJs {
         }
     }
 
+    // private get labels
+
+    private get labels() {
+        return this._labels;
+    }
+
+    // private set labels
+
+    private set labels(value) {
+        this._labels = value;
+        if (this.initFlag && this._chartType && this._chartType.length > 0) {
+            this.refresh();
+        }
+    }
+
+    // private get series
+
+    private get series() {
+        return this._series;
+    }
+
+    // private set series
+
+    private set series(value) {
+        this._series = value;
+        if (this.initFlag && this._chartType && this._chartType.length > 0) {
+            this.refresh();
+        }
+    }
+
+
+
+
+
     setLegend() {
         let list = this.parent.getElementsByTagName('ul');
         if (list.length) {
@@ -214,7 +248,6 @@ export class AtexoChartsJs {
     }
 
     public click(evt) {
-        console.log('xxxx');
         let atEvent = this.chart.getPointsAtEvent || this.chart.getBarsAtEvent || this.chart.getSegmentsAtEvent;
         let activePoints = atEvent.call(this.chart, evt);
         if (activePoints.length > 0) {

@@ -425,10 +425,10 @@ exports.panel = [
             list: []
         },
         data: '',
-        urlData: '',
+        urlData: 'http://localhost:5600/server/mocks/chart.csv',
         location: {
             zone: 1,
             order: 1
-        }
+        },
     }
 ];

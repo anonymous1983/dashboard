@@ -7,10 +7,9 @@
 
 import {Injectable} from 'angular2/core';
 import {URLSearchParams} from 'angular2/http';
-import {isPresent, isJsObject, isString } from 'angular2/src/facade/lang';
+import {isPresent, isJsObject, isString, isArray, isBlank } from 'angular2/src/facade/lang';
 
 import {AtexoPathConstant, AtexoRestConstant, RequestUrlType} from '../../constants/atexo.constant';
-import construct = Reflect.construct;
 
 
 @Injectable()
@@ -43,6 +42,10 @@ export class Util {
 
     RequestOptions() {
         return new RequestOptions();
+    }
+
+    Json() {
+        return new Json();
     }
 
     Grep(arr, callback) {
@@ -144,5 +147,150 @@ class RequestOptions {
             }
             return this.searchParams;
         }
+    }
+}
+
+
+class Json {
+
+    public result:any;
+    public arrayResult:Array<any>;
+    public easting:Array<any>;
+    public eastingArray:Array<any>;
+    public ordered:Array<any>;
+    public orderedArray:Array<any>;
+
+    constructor() {
+        return this;
+    }
+
+    public getByProperty(arrayJson:Array<Object>, property?:any, value?:any) {
+
+        let arrayProperty:Array<any> = [],
+            arrayValue:Array<any> = [];
+        if (isPresent(property) && isPresent(value)) {
+            if (isString(property) && isString(value)) {
+                arrayProperty.push(property);
+                arrayValue.push(value);
+            } else {
+                arrayProperty = property;
+                arrayValue = value;
+            }
+        }
+
+
+        if (isPresent(arrayJson)) {
+            this.result = arrayJson;
+        }
+
+        let i:number = 0,
+            length:number = this.result.length,
+            arrReturn:Array<any> = [];
+
+        for (; i < length; i++) {
+            if (arrayProperty.length === 0 || arrayValue.length === 0) {
+                arrReturn.push(this.result[i]);
+            } else {
+                if (this.checkPropertyValue(this.result[i], arrayProperty, arrayValue)) {
+                    arrReturn.push(this.result[i]);
+                }
+            }
+
+        }
+
+        this.result = arrReturn;
+        return arrReturn;
+    }
+
+    public groupByProperty(property:any, arrayJson?:Array<Object>) {
+
+        let arrayProperty:Array<any> = [];
+
+        if (isString(property)) {
+            arrayProperty.push(property);
+        } else {
+            arrayProperty = property;
+        }
+
+        if (isPresent(arrayJson)) {
+            this.result = arrayJson;
+        }
+
+        let i:number = 0,
+            length:number = this.result.length,
+            arrReturn:Array<any> = [[]],
+            arrEasting:Array<any> = [],
+            arrOrdered:Array<any> = [],
+            easting:Array<any> = this.easting;
+
+        this.result.map(function (obj) {
+            if (arrOrdered.indexOf(obj[arrayProperty[0]]) === -1) {
+                arrOrdered
+                    .push(obj[arrayProperty[0]]);
+                arrReturn[arrOrdered.indexOf(obj[arrayProperty[0]])] = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            }
+
+
+            arrReturn
+                [arrOrdered.indexOf(obj[property[0]])]
+                [easting.indexOf(obj[property[1]])] += Number(obj[property[2]]);
+
+        });
+
+        this.arrayResult = arrReturn;
+        this.ordered = arrOrdered;
+        return arrReturn;
+    }
+
+    public setArrayJson(arrayJson:Array<Object>) {
+        this.result = arrayJson;
+    }
+
+    public getArrayJson():Array<Object> {
+        return this.result;
+    }
+
+    public getResult():Array<Object> {
+        return this.result;
+    }
+
+    public getArrayResult():Array<number> {
+        return this.arrayResult;
+    }
+
+    public getEasting():Array<string> {
+        return this.easting;
+    }
+
+    public setEasting(easting:Array<any>) {
+        this.easting = easting;
+        this.setEastingArray();
+    }
+
+    public getOrdered() {
+        return this.ordered;
+    }
+
+    public setEastingArray() {
+        /*this.easting.map(function (row) {
+         this.setEastingArray[row] = 0;
+         });*/
+        return true;
+    }
+
+
+    private checkPropertyValue(arrayJson:Object, property:Array<any>, value:Array<any>) {
+        let i:number = 0,
+            length:number = property.length,
+            result:boolean = true;
+        for (; i < length; i++) {
+
+            if (arrayJson[property[i]] !== value[i]) {
+                result = false;
+                return result;
+            }
+        }
+
+        return result;
     }
 }

@@ -16,6 +16,7 @@ export class Convert {
     private strDelimiter:string = ';';
     private arrData:Array<any>;
     private jsonData:String;
+    private arrProperty:Array<string> = [];
 
     constructor() {
         if (!Convert.isCreating) {
@@ -37,15 +38,15 @@ export class Convert {
 
         this.arrData = [];
 
-        var headers = lines[0].split(';');
+        this.arrProperty = lines[0].split(';');
 
         for (var i = 1; i < lines.length; i++) {
 
             var obj = {};
             var currentline = lines[i].split(';');
 
-            for (var j = 0; j < headers.length; j++) {
-                obj[headers[j]] = currentline[j];
+            for (var j = 0; j < this.arrProperty.length; j++) {
+                obj[this.arrProperty[j]] = currentline[j];
             }
 
             this.arrData.push(obj);
@@ -59,6 +60,10 @@ export class Convert {
 
     public getArrayData() {
         return this.arrData;
+    }
+
+    public getArrProperty() {
+        return this.arrProperty;
     }
 
 }

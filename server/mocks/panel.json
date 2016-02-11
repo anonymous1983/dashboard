@@ -419,10 +419,13 @@
       "list": []
     },
     "data": "",
-    "urlData": "http://localhost:5600/server/mocks/chart.json",
+    "urlData": "http://localhost:5600/server/mocks/chart.csv",
     "location": {
       "zone": 1,
       "order": 1
+    },
+    "chart": {
+      "type": []
     }
   }
 ]
