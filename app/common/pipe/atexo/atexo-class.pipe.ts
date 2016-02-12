@@ -19,7 +19,8 @@ import {isPresent } from 'angular2/src/facade/lang';
 @Pipe({name: 'toClass'})
 export class ToClassPipe implements PipeTransform {
     postClass:string;
-    transform(value:string, args:string[]) : any {
+
+    transform(value:string, args:string[]):any {
         this.postClass = isPresent(args[0]) ? args[0] : 'panel-body-type-';
         return this.postClass.concat(value.toLowerCase());
     }

@@ -58,7 +58,7 @@ export class PanelBodySearch {
     }
 
     quickSearchDisplay(display?:boolean) {
-        let _timeOut:number, _milliseconds:number = 100;
+        let _timeOut:any, _milliseconds:number = 100;
         clearTimeout(_timeOut);
         _timeOut = setTimeout(() => {
             if (isPresent(display)) {
