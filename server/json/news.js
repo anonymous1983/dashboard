@@ -3,7 +3,7 @@ exports.news = [
         id: 1,
         title: 'Nouveaux seuils applicables aux marchés publics en 2016',
         date: 1451865600, // 1451865600,
-        data: 'Tardivement mis en ligne, le décret n°2015-1904 du 31 décembre 2015, modifiant les seuils applicables aux marchés publics et autres contrats de la commande publique, a été publié au JORF du même jour.',
+        content: 'Tardivement mis en ligne, le décret n°2015-1904 du 31 décembre 2015, modifiant les seuils applicables aux marchés publics et autres contrats de la commande publique, a été publié au JORF du même jour.',
         links: [
             {
                 type: 'link',

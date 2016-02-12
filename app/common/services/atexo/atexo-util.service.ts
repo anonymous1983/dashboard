@@ -48,6 +48,10 @@ export class Util {
         return new Json();
     }
 
+    URLParams() {
+        return new URLParams();
+    }
+
     Grep(arr, callback) {
         let newArr = [],
             len = arr.length,
@@ -148,6 +152,31 @@ class RequestOptions {
             return this.searchParams;
         }
     }
+}
+
+
+class URLParams {
+
+    private params:URLSearchParams;
+
+    constructor() {
+        return this;
+    }
+
+    parse(_params?:Object) {
+        let params:URLSearchParams = new URLSearchParams();
+        if (isPresent(_params)) {
+            //this.params = new URLSearchParams();
+            for (var k in _params) {
+                if (_params.hasOwnProperty(k)) {
+                    params.set(k, _params[k]);
+                }
+            }
+            this.params = params;
+        }
+        return this.params;
+    }
+
 }
 
 

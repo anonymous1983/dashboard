@@ -38,14 +38,11 @@ export class PanelBodyArticle {
     }
 
     ngOnInit() {
-
         this.panelBodyArticleServiceAll(this.panelBodyObj.urlData);
-
         return true;
     }
 
     panelBodyArticleServiceAll(url) {
-
         this.panelBodyArticleProvider.all(url).subscribe((res:Response) => {
 
             if (res.status === 200) {

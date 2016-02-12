@@ -135,7 +135,7 @@
       ]
     },
     "data": "",
-    "urlData": "",
+    "urlData": "http://localhost:5600/server/mocks/consultations.json",
     "location": {
       "zone": 2,
       "order": 1
@@ -209,7 +209,7 @@
       ]
     },
     "data": "",
-    "urlData": "",
+    "urlData": "http://localhost:5600/server/mocks/search.json",
     "location": {
       "zone": 3,
       "order": 1
@@ -351,7 +351,7 @@
       ]
     },
     "data": "",
-    "urlData": "",
+    "urlData": "http://localhost:5600/server/mocks/publications.json",
     "location": {
       "zone": 2,
       "order": 2
@@ -421,7 +421,7 @@
     "data": "",
     "urlData": "http://localhost:5600/server/mocks/chart.csv",
     "location": {
-      "zone": 1,
+      "zone": 3,
       "order": 1
     },
     "chart": {

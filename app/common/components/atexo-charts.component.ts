@@ -19,7 +19,7 @@ declare var Chart:any;
 })
 
 @View({
-    template: '<div class="canvas-wrap atexo-canvas-wrap"><canvas class="canvas atexo-canvas-chart" height="50%"></canvas></div>'
+    template: '<div class="canvas-wrap atexo-canvas-wrap"><canvas class="canvas atexo-canvas-chart" height="100%"></canvas></div>'
 })
 
 export class AtexoChartsJs {

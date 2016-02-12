@@ -2,10 +2,45 @@
     <form role="form" class="form-horizontal">
         <div class="form-group form-group-sm">
             <div class="col-sm-12">
-                <div class="input-group quick-search">
-                    <input type="text" placeholder="Mots clés, intitulé ou objet" class="form-control input-sm" id="quickSearch" title="Recherche rapide par mots clés, intitulé ou objet">
-                    <span class="input-group-btn"><button type="button" class="btn btn-primary btn-sm" id="quickSearchBtn"><i class="fa fa-search fa-flip-horizontal"></i><span class="sr-only">Lancer la recherche</span></button></span>
+                <div class="input-group quick-search" [ngClass]="{focus: focusClass}">
+                    <input type="text"
+                           placeholder="Mots clés, intitulé ou objet"
+                           class="form-control input-sm quick-search-input"
+                           autocomplete="off"
+                           id="quickSearch"
+                           [(ngModel)]="q"
+                           (keyup)="quickSearch()"
+                           (keyup.escape)="quickSearchClear()"
+                           (blur)="quickSearchDisplay(false)"
+                           (focus)="quickSearchDisplay(true)"
+                           title="Recherche rapide par mots clés, intitulé ou objet"
+                    >
+                    <span class="input-group-btn">
+                        <button type="button"
+                                class="btn btn-default btn-sm quick-search-btn"
+                                id="quickSearchBtn">
+                            <i class="fa fa-search fa-flip-horizontal"></i>
+                            <span class="sr-only">Lancer la recherche</span>
+                        </button>
+                    </span>
+                    <a href=""
+                       title="Annuler"
+                       name="Annuler"
+                       class="fa fa-close quick-search-clear"
+                       *ngIf="items.length"
+                       (click)="quickSearchClear()"></a>
+
+                    <div class="quick-search-result" *ngIf="display">
+                        <div class="list-group">
+                            <a *ngFor="#item of items; #i=index"
+                               href="{{item.url}}"
+                               class="list-group-item">
+                                {{item.title}}
+                            </a>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </form>

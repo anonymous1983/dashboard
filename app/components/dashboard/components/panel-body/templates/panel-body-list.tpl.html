@@ -1,3 +1,9 @@
 <div class="{{ panelBodyObj.type.category | toClass }}">
-    List TPL
+    <div class="list-group" role="list">
+        <a class="list-group-item" href="#" role="listitem"
+           *ngFor="#item of items; #i=index">
+            {{item.status}}
+            <span class="badge" [ngClass]="{ 'badge-success': item.active }">{{item.count}}</span>
+        </a>
+    </div>
 </div>

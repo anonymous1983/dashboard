@@ -4,8 +4,11 @@ import {HTTP_PROVIDERS, Http, RequestOptions, Request, Response, RequestMethod} 
 
 import {ToClassPipe} from '../../../../common/pipe/atexo.pipe';
 
+import {PanelBodyListProvider} from './providers/panel-body-list.provider';
+
 @Component({
-    selector: 'panel-body-list'
+    selector: 'panel-body-list',
+    providers: [PanelBodyListProvider]
     //inputs: ['panelObj']
 })
 
@@ -16,13 +19,28 @@ import {ToClassPipe} from '../../../../common/pipe/atexo.pipe';
 export class PanelBodyList {
 
     @Input() panelBodyObj;
+    panelBodyListProvider:PanelBodyListProvider;
+    items:Array<any>;
 
-    constructor(private el:ElementRef) {
-        this.el = el;
+    constructor(panelBodyListProvider:PanelBodyListProvider) {
+        this.items = [];
+        this.panelBodyListProvider = panelBodyListProvider;
     }
 
     ngOnInit() {
+        this.panelBodyListServiceAll(this.panelBodyObj.urlData);
         return true;
+    }
+
+    panelBodyListServiceAll(url) {
+
+        this.panelBodyListProvider.all(url).subscribe((res:Response) => {
+
+            if (res.status === 200) {
+                this.items = res.json();
+            }
+
+        });
     }
 
 }
