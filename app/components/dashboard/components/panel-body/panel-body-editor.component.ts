@@ -27,6 +27,7 @@ export class PanelBodyEditor {
     notes:Array<Note>;
     editBoolean:boolean = false;
     editorTextarea:string;
+    private _milliseconds:number = 100;
 
     constructor(panelBodyEditorProvider:PanelBodyEditorProvider) {
         this.panelBodyEditorProvider = panelBodyEditorProvider;
@@ -60,6 +61,12 @@ export class PanelBodyEditor {
 
     cancel(note:Note) {
         note.editing = false;
+        /*let _timeOut:any, _milliseconds:number = this._milliseconds;
+         clearTimeout(_timeOut);
+         _timeOut = setTimeout(() => {
+         note.editing = false;
+         }, _milliseconds);*/
+
         return false;
     }
 
@@ -69,8 +76,8 @@ export class PanelBodyEditor {
     }
 
     save(note:Note) {
-        note.editing = false;
         note.data['content'] = note.draft;
+        note.editing = false;
         return false;
     }
 

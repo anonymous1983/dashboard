@@ -43,4 +43,6 @@ https://github.com/MrRio/jsPDF
 http://mrrio.github.io/jsPDF/#
 https://parall.ax/services
 
+https://github.com/valor-software/ng2-dragula
 
+### http://builtwithangular2.com/page/3/

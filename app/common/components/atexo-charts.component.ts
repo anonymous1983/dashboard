@@ -31,7 +31,7 @@ export class AtexoChartsJs {
     private chart:any;
     private _data:Array<any> = [];
     private _labels:Array<any> = [];
-    private options:any = {responsive: true};
+    private _options:any = {responsive: true};
     private _chartType:string;
     private _series:Array<any> = [];
     private _colours:Array<any> = [];
@@ -42,68 +42,68 @@ export class AtexoChartsJs {
     private chartHover:EventEmitter<any> = new EventEmitter();
     private defaultsColours:Array<any> = [
         {
-            fillColor: 'rgba(151,187,205,0.2)',
-            strokeColor: 'rgba(151,187,205,1)',
-            pointColor: 'rgba(151,187,205,1)',
+            fillColor: 'rgba(253, 216, 53,0.2)',
+            strokeColor: 'rgba(253, 216, 53,1)',
+            pointColor: 'rgba(253, 216, 53,1)',
             pointStrokeColor: '#fff',
             pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(151,187,205,0.8)',
-            color: 'rgba(151,187,205,1)',
-            highlight: 'rgba(151,187,205,0.8)'
+            pointHighlightStroke: 'rgba(253, 216, 53,0.8)',
+            color: 'rgba(253, 216, 53,1)',
+            highlight: 'rgba(253, 216, 53,0.8)'
         }, {
-            fillColor: 'rgba(220,220,220,0.2)',
-            strokeColor: 'rgba(220,220,220,1)',
-            pointColor: 'rgba(220,220,220,1)',
+            fillColor: 'rgba(236, 64, 122,0.2)',
+            strokeColor: 'rgba(236, 64, 122,1)',
+            pointColor: 'rgba(236, 64, 122,1)',
             pointStrokeColor: '#fff',
             pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(220,220,220,0.8)',
-            color: 'rgba(220,220,220,1)',
-            highlight: 'rgba(220,220,220,0.8)'
+            pointHighlightStroke: 'rgba(236, 64, 122,0.8)',
+            color: 'rgba(236, 64, 122,1)',
+            highlight: 'rgba(236, 64, 122,0.8)'
         }, {
-            fillColor: 'rgba(247,70,74,0.2)',
-            strokeColor: 'rgba(247,70,74,1)',
-            pointColor: 'rgba(247,70,74,1)',
+            fillColor: 'rgba(205, 220, 57,0.2)',
+            strokeColor: 'rgba(205, 220, 57,1)',
+            pointColor: 'rgba(205, 220, 57,1)',
             pointStrokeColor: '#fff',
             pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(247,70,74,0.8)',
-            color: 'rgba(247,70,74,1)',
-            highlight: 'rgba(247,70,74,0.8)'
+            pointHighlightStroke: 'rgba(205, 220, 57,0.8)',
+            color: 'rgba(205, 220, 57,1)',
+            highlight: 'rgba(205, 220, 57,0.8)'
         }, {
-            fillColor: 'rgba(70,191,189,0.2)',
-            strokeColor: 'rgba(70,191,189,1)',
-            pointColor: 'rgba(70,191,189,1)',
+            fillColor: 'rgba(41, 182, 246,0.2)',
+            strokeColor: 'rgba(41, 182, 246,1)',
+            pointColor: 'rgba(41, 182, 246,1)',
             pointStrokeColor: '#fff',
             pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(70,191,189,0.8)',
-            color: 'rgba(70,191,189,1)',
-            highlight: 'rgba(70,191,189,0.8)'
+            pointHighlightStroke: 'rgba(41, 182, 246,0.8)',
+            color: 'rgba(41, 182, 246,1)',
+            highlight: 'rgba(41, 182, 246,0.8)'
         }, {
-            fillColor: 'rgba(253,180,92,0.2)',
-            strokeColor: 'rgba(253,180,92,1)',
-            pointColor: 'rgba(253,180,92,1)',
+            fillColor: 'rgba(142, 68, 173,0.2)',
+            strokeColor: 'rgba(142, 68, 173,1)',
+            pointColor: 'rgba(142, 68, 173,1)',
             pointStrokeColor: '#fff',
             pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(253,180,92,0.8)',
-            color: 'rgba(253,180,92,1)',
-            highlight: 'rgba(253,180,92,0.8)'
+            pointHighlightStroke: 'rgba(142, 68, 173,0.8)',
+            color: 'rgba(142, 68, 173,1)',
+            highlight: 'rgba(142, 68, 173,0.8)'
         }, {
-            fillColor: 'rgba(148,159,177,0.2)',
-            strokeColor: 'rgba(148,159,177,1)',
-            pointColor: 'rgba(148,159,177,1)',
+            fillColor: 'rgba(255, 193, 7,0.2)',
+            strokeColor: 'rgba(255, 193, 7,1)',
+            pointColor: 'rgba(255, 193, 7,1)',
             pointStrokeColor: '#fff',
             pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(148,159,177,0.8)',
-            color: 'rgba(148,159,177,1)',
-            highlight: 'rgba(148,159,177,0.8)'
+            pointHighlightStroke: 'rgba(255, 193, 7,0.8)',
+            color: 'rgba(255, 193, 7,1)',
+            highlight: 'rgba(255, 193, 7,0.8)'
         }, {
-            fillColor: 'rgba(77,83,96,0.2)',
-            strokeColor: 'rgba(77,83,96,1)',
-            pointColor: 'rgba(77,83,96,1)',
+            fillColor: 'rgba(13, 71, 161,0.2)',
+            strokeColor: 'rgba(13, 71, 161,1)',
+            pointColor: 'rgba(13, 71, 161,1)',
             pointStrokeColor: '#fff',
             pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(77,83,96,0.8)',
-            color: 'rgba(77,83,96,1)',
-            highlight: 'rgba(77,83,96,0.8)'
+            pointHighlightStroke: 'rgba(13, 71, 161,0.8)',
+            color: 'rgba(13, 71, 161,1)',
+            highlight: 'rgba(13, 71, 161,0.8)'
         }];
 
     constructor(private element:ElementRef) {
@@ -212,6 +212,21 @@ export class AtexoChartsJs {
         }
     }
 
+
+    // private get options
+
+    private get options() {
+        return this._options;
+    }
+
+    // private set options
+
+    private set options(value) {
+        this._options = value;
+        if (this.initFlag && this._chartType && this._chartType.length > 0) {
+            this.refresh();
+        }
+    }
 
 
 

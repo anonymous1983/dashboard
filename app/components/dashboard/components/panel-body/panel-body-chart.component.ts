@@ -3,6 +3,8 @@ import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
 import {RouteParams} from 'angular2/router';
 import {HTTP_PROVIDERS, Http, RequestOptions, Request, Response, RequestMethod} from 'angular2/http';
 
+
+import {AtexoColorChartConstant} from '../../../../common/constants/atexo.constant';
 import {ToClassPipe} from '../../../../common/pipe/atexo.pipe';
 import {Util, Convert} from '../../../../common/services/atexo.service';
 import {AtexoChartsJs} from '../../../../common/components/atexo-charts.component';
@@ -29,6 +31,33 @@ export class PanelBodyChart {
     panelBodyChartProvider:PanelBodyChartProvider;
     // lineChart
     private lineChartData:Array<any> = [[]];
+    private lineChartDataOld:Array<any> = this.lineChartData;
+    private lineChartLabels:Array<any> = [];
+    private lineChartSeries:Array<any> = [];
+    private lineChartSeriesColors:Array<any> = [];
+    private lineChartSeriesActive:Array < boolean > = [];
+    private lineChartOptions:any = this.getLineChartOptions();
+    private lineChartColours:Array<any> = AtexoColorChartConstant;
+
+    private lineChartColoursOld:Array<any> = this.lineChartColours;
+    private lineChartLegend:boolean = false;
+    private lineChartType:string = 'Line';
+    private lineChartTypes:Array<any> = [
+        {
+            active: true,
+            type: 'Line',
+            icons: 'fa fa-line-chart'
+        }, {
+            active: false,
+            type: 'Bar',
+            icons: 'fa fa-bar-chart'
+        },
+        {
+            active: false,
+            type: 'Doughnut',
+            icons: 'fa fa-bar-chart'
+        }
+    ];
 
     constructor(panelBodyChartProvider:PanelBodyChartProvider) {
         this.panelBodyChartProvider = panelBodyChartProvider;
@@ -53,15 +82,9 @@ export class PanelBodyChart {
 
             if (res.status === 200) {
                 //this.notes = res.json();
-                //console.log(res.text());
 
                 Convert.getInstance().cvsToJson(res.text());
                 let ch = Convert.getInstance().getArrayData();
-
-
-                //console.log(Convert.getInstance().getArrProperty());
-
-                //console.log(Util.getInstance().Json().getByProperty(ch, new Array('annee'), new Array('2012')));
 
                 var jsonInstance:any = Util.getInstance().Json();
                 jsonInstance.setEasting(
@@ -166,82 +189,5 @@ export class PanelBodyChart {
             legendTemplate: ''
         };
     }
-
-    private lineChartDataOld:Array<any> = this.lineChartData;
-    private lineChartLabels:Array<any> = [];
-    private lineChartSeries:Array<any> = [];
-    private lineChartSeriesColors:Array<any> = [];
-    private lineChartSeriesActive:Array < boolean > = [];
-    private lineChartOptions:any = this.getLineChartOptions();
-    private lineChartColours:Array<any> = [
-        {
-            fillColor: 'rgba(253, 216, 53,0.2)',
-            strokeColor: 'rgba(253, 216, 53,1)',
-            pointColor: 'rgba(253, 216, 53,1)',
-            pointStrokeColor: '#fff',
-            pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(253, 216, 53,0.8)',
-            color: 'rgba(0,0,0,1)',
-            highlight: 'rgba(0,0,0,0.8)'
-        }, {
-            fillColor: 'rgba(236, 64, 122,0.2)',
-            strokeColor: 'rgba(236, 64, 122,1)',
-            pointColor: 'rgba(236, 64, 122,1)',
-            pointStrokeColor: '#fff',
-            pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(236, 64, 122,0.8)',
-            color: 'rgba(0,0,0,1)',
-            highlight: 'rgba(0,0,0,0.8)'
-        }, {
-            fillColor: 'rgba(205, 220, 57,0.2)',
-            strokeColor: 'rgba(205, 220, 57,1)',
-            pointColor: 'rgba(205, 220, 57,1)',
-            pointStrokeColor: '#fff',
-            pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(205, 220, 57,0.8)',
-            color: 'rgba(0,0,0,1)',
-            highlight: 'rgba(0,0,0,0.8)'
-        }, {
-            fillColor: 'rgba(41, 182, 246,0.2)',
-            strokeColor: 'rgba(41, 182, 246,1)',
-            pointColor: 'rgba(41, 182, 246,1)',
-            pointStrokeColor: '#fff',
-            pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(41, 182, 246,0.8)',
-            color: 'rgba(0,0,0,1)',
-            highlight: 'rgba(0,0,0,0.8)'
-        }, {
-            fillColor: 'rgba(13, 71, 161,0.2)',
-            strokeColor: 'rgba(13, 71, 161,1)',
-            pointColor: 'rgba(13, 71, 161,1)',
-            pointStrokeColor: '#fff',
-            pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(13, 71, 161,0.8)',
-            color: 'rgba(0,0,0,1)',
-            highlight: 'rgba(0,0,0,0.8)'
-        }, {
-            fillColor: 'rgba(255, 193, 7,0.2)',
-            strokeColor: 'rgba(255, 193, 7,1)',
-            pointColor: 'rgba(255, 193, 7,1)',
-            pointStrokeColor: '#fff',
-            pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(255, 193, 7,0.8)',
-            color: 'rgba(0,0,0,1)',
-            highlight: 'rgba(0,0,0,0.8)'
-        }];
-
-    private lineChartColoursOld:Array<any> = this.lineChartColours;
-    private lineChartLegend:boolean = false;
-    private lineChartType:string = 'Line';
-    private lineChartTypes:Array<any> = [
-        {
-            active: true,
-            type: 'Line',
-            icons: 'fa fa-line-chart'
-        }, {
-            active: false,
-            type: 'Bar',
-            icons: 'fa fa-bar-chart'
-        }];
 
 }

@@ -1,15 +1,18 @@
 <div class="{{ panelBodyObj.type.category | toClass}}">
 
-    <ul class="atexoui-list right horizontal">
-        <li *ngFor="#type of lineChartTypes; #i=index" [ngClass]="{ available: lineChartTypes[i].active, disabled: !lineChartTypes[i].active }">
-            <a href="#"
-               [ngClass]="{ available: lineChartTypes[i].active, disabled: !lineChartTypes[i].active }"
-               (click)="updateChartType(i)">
-                <span class="{{type.icons}}"></span>
-                {{type.type}}
-            </a>
-        </li>
-    </ul>
+    <div class="clearfix sub-header">
+        <ul class="atexoui-list right horizontal">
+            <li *ngFor="#type of lineChartTypes; #i=index"
+                [ngClass]="{ available: lineChartTypes[i].active, disabled: !lineChartTypes[i].active }">
+                <a href="#"
+                   [ngClass]="{ available: lineChartTypes[i].active, disabled: !lineChartTypes[i].active }"
+                   (click)="updateChartType(i)">
+                    <span class="{{type.icons}}"></span>
+                    {{type.type}}
+                </a>
+            </li>
+        </ul>
+    </div>
 
     <panel-body-charts-js
             [data]="lineChartData"
@@ -24,11 +27,13 @@
 
 
     <ul class="atexoui-list center horizontal">
-        <li *ngFor="#serie of lineChartSeries; #i=index" [ngClass]="{ available: lineChartSeriesActive[i], disabled: !lineChartSeriesActive[i] }">
+        <li *ngFor="#serie of lineChartSeries; #i=index"
+            [ngClass]="{ available: lineChartSeriesActive[i], disabled: !lineChartSeriesActive[i] }">
             <a href="#"
                (click)="updateChart(i)"
                [ngClass]="{ available: lineChartSeriesActive[i], disabled: !lineChartSeriesActive[i] }">
-                <span [ngStyle]="{ 'color': lineChartSeriesColors[i] }" class="fa fa-eye" [ngClass]="{ 'fa-eye': lineChartSeriesActive[i], 'fa-eye-slash': !lineChartSeriesActive[i] }"></span>
+                <span [ngStyle]="{ 'color': lineChartSeriesColors[i] }" class="fa fa-eye"
+                      [ngClass]="{ 'fa-eye': lineChartSeriesActive[i], 'fa-eye-slash': !lineChartSeriesActive[i] }"></span>
                 {{serie}}
             </a>
         </li>

@@ -1,4 +1,4 @@
-import {Component, View, bind} from 'angular2/core';
+import {Component, View, bind, ViewEncapsulation} from 'angular2/core';
 import {ROUTER_PROVIDERS, RouterOutlet, RouteConfig, RouterLink, Location} from 'angular2/router';
 
 import {LocationStrategy, HashLocationStrategy} from 'angular2/router';
@@ -7,7 +7,7 @@ import { Routing } from './routing';
 import { Progress } from './common/services/atexo.service';
 
 @Component({
-    selector: 'my-app'
+    selector: 'my-app',
 })
 @View({
     templateUrl: './app/app.html',

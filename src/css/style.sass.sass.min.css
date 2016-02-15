@@ -2,12 +2,14 @@
   display: table;
   text-align: center;
   margin: 0 auto;
-  cursor: pointer; }
+  cursor: pointer;
+  padding: 0; }
 
 .atexoui-link.right {
   display: table;
   text-align: left;
   margin: 0;
+  padding: 0;
   cursor: pointer;
   float: right; }
 
@@ -15,12 +17,14 @@
   display: table;
   text-align: center;
   margin: 0 auto;
-  cursor: pointer; }
+  cursor: pointer;
+  padding: 0; }
 
 .atexoui-list.right {
   display: table;
   text-align: left;
   margin: 0;
+  padding: 0;
   cursor: pointer;
   float: right; }
 
@@ -78,11 +82,22 @@
   display: block;
   line-height: 16px; }
 
+.panel-body-type-list .display-chart {
+  position: relative; }
+
+.panel-body-type-list .display-chart .atexoui-list {
+  position: absolute;
+  top: 30%;
+  right: 10px; }
+
 .panel.close {
   display: none; }
 
 .panel .widget-controls a {
   text-decoration: none; }
+
+.panel .sub-header {
+  margin-bottom: 10px; }
 
 .panel .btn-more {
   display: block;
@@ -109,12 +124,12 @@
   overflow: auto; }
 
 .panel-body-article-wrap {
-  max-height: 200px;
+  max-height: 205px;
   overflow: hidden;
   position: relative; }
 
 .articles {
-  max-height: 200px;
+  max-height: 205px;
   overflow: auto; }
 
 .articles li:first-child .article {
@@ -122,8 +137,8 @@
 
 .article {
   border-top: 1px solid #F0F0F0;
-  padding-bottom: 10px;
-  padding-top: 5px; }
+  padding-bottom: 8px;
+  padding-top: 4px; }
 
 .article p {
   margin: 0 0 5px; }
@@ -131,7 +146,8 @@
 .article .title {
   color: #3D6BA6;
   font-size: 1em;
-  font-weight: 600; }
+  font-weight: 600;
+  margin: 5px 0; }
 
 .article .date {
   float: right;

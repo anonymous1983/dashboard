@@ -364,7 +364,7 @@
       "subcategory": ""
     },
     "name": "evolution-procedure",
-    "title": "Evolution types de procédure",
+    "title": "Evolution nombre de consultations",
     "icons": "fa fa-bar-chart",
     "options": {
       "toggle": {

@@ -3,7 +3,7 @@ import {RouteParams} from 'angular2/router';
 import {HTTP_PROVIDERS, Http, RequestOptions, Request, Response, RequestMethod} from 'angular2/http';
 
 
-import {ToClassPipe, ToDatePipe} from '../../../../common/pipe/atexo.pipe';
+import {ToClassPipe, ToDatePipe, TrancatePipe} from '../../../../common/pipe/atexo.pipe';
 
 import {PanelBodyArticleProvider} from './providers/panel-body-article.provider';
 
@@ -18,7 +18,7 @@ import {AtexoSpinner} from '../../../../common/components/atexo-spinner.componen
 
 @View({
     templateUrl: './app/components/dashboard/components/panel-body/templates/panel-body-article.tpl.html',
-    pipes: [ToClassPipe, ToDatePipe],
+    pipes: [ToClassPipe, ToDatePipe, TrancatePipe],
     directives: [AtexoSpinner]
 })
 export class PanelBodyArticle {
@@ -28,7 +28,7 @@ export class PanelBodyArticle {
     panelBodyArticleProvider:PanelBodyArticleProvider;
     articles:Object[] = [];
     articleSelected:Object;
-    limit:number = 2;
+    limit:number = 3;
     offset:number;
 
     constructor(private el:ElementRef, panelBodyArticleProvider:PanelBodyArticleProvider) {

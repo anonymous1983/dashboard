@@ -3,17 +3,19 @@ import {RouteParams} from 'angular2/router';
 import {HTTP_PROVIDERS, Http, RequestOptions, Request, Response, RequestMethod} from 'angular2/http';
 
 import {Progress} from '../../common/services/atexo.service';
+import {Dragula} from '../../common/directives/dragula.directive';
+import {DragulaService} from '../../common/providers/dragula.provider';
 
 import {PanelProvider} from './providers/panel.provider';
 import {Panel} from './components/panel/panel.component';
 
 @Component({
     selector: 'dashboard',
-    providers: [PanelProvider]
+    providers: [PanelProvider, DragulaService]
 })
 @View({
     templateUrl: './app/components/dashboard/templates/dashboard.tpl.html',
-    directives: [Panel]
+    directives: [Panel, Dragula]
 })
 export class Dashboard {
     panels:Object[] = [];

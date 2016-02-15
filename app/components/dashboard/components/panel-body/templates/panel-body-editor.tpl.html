@@ -6,32 +6,33 @@
             <article class="note note-item">
 
                 <ul class="overlay-options options top">
-                    <li *ngIf="!note.editing">
-                        <a href=""
-                           title="Modifier"
-                           class="option option-item"
-                           (click)="edit(note)">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                    </li>
+
                     <li *ngIf="note.editing">
-                        <a href=""
+                        <a href="#"
                            title="Enregistrer"
-                           class="option option-item"
+                           class="btn option option-item"
                            (click)="save(note)">
                             <i class="fa fa-check"></i>
                         </a>
                     </li>
                     <li *ngIf="note.editing">
-                        <a href=""
+                        <a href="#"
                            title="Annuler"
-                           class="option option-item"
+                           class="btn option option-item"
                            (click)="cancel(note)">
                             <i class="fa fa-close"></i>
                         </a>
                     </li>
-                </ul>
 
+                    <li *ngIf="!note.editing">
+                        <a href="#"
+                           title="Modifier"
+                           class="btn option option-item"
+                           (click)="edit(note)">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                    </li>
+                </ul>
 
                 <div class="editor-view" *ngIf="!note.editing" (click)="ondblclick(note)">
                     {{ note.data.content }}
@@ -41,7 +42,6 @@
                     <textarea class="textarea"
                               [(ngModel)]="note.draft"
                               (keyup.escape)="cancel(note)"
-                              (blur)="cancel(note)"
                               (keyup.enter)="save(note)"></textarea>
                 </div>
 
@@ -50,6 +50,6 @@
         </li>
     </ul>
 
-    <!--a href="" class="atexoui-link center add" (click)="add()">Ajouter une note</a-->
+    <a href="" class="atexoui-link center add" (click)="add()">Ajouter une note</a>
 
 </div>
