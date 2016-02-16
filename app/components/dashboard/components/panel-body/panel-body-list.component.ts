@@ -63,6 +63,16 @@ export class PanelBodyList {
         return false;
     }
 
+    // events
+    public chartClicked(e:any) {
+        //console.log(e);
+    }
+
+    public chartHovered(e:any) {
+        //console.log(e);
+    }
+
+
     panelBodyListServiceAll(url) {
 
         this.panelBodyListProvider.all(url).subscribe((res:Response) => {
@@ -73,7 +83,7 @@ export class PanelBodyList {
 
                 this.items.forEach((obj) => {
                     this.chartData.push(obj.count);
-                    this.chartLabels.push(obj.status);
+                    this.chartLabels.push(obj.status.replace('En cours - ', ''));
                     this.chartOptions = {responsive: true, animateRotate: true};
                     this.chartColors.push(AtexoColorChartConstant[i].color);
                     i++;

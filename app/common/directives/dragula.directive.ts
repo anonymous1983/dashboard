@@ -1,10 +1,10 @@
 import {
-  Directive,
-  Input,
-  ElementRef,
-  OnInit,
-  OnChanges,
-  SimpleChange
+    Directive,
+    Input,
+    ElementRef,
+    OnInit,
+    OnChanges,
+    SimpleChange
 } from 'angular2/core';
 import {DragulaService} from '../providers/dragula.provider';
 declare var dragula: any;

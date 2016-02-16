@@ -15,11 +15,18 @@ declare var Chart:any;
         'chartType',
         'legend',
         'options'
-    ]
+    ],
+    events: ['chartClick', 'chartHover']
 })
 
 @View({
-    template: '<div class="canvas-wrap atexo-canvas-wrap"><canvas class="canvas atexo-canvas-chart" height="100%"></canvas></div>'
+    template: `<div class="canvas-wrap atexo-canvas-wrap">
+                    <canvas
+                    class="canvas atexo-canvas-chart"
+                    height="100%"
+                    (click)="click($event)"
+                    (mousemove)="hover($event)"></canvas>
+                </div>`
 })
 
 export class AtexoChartsJs {
@@ -107,7 +114,6 @@ export class AtexoChartsJs {
         }];
 
     constructor(private element:ElementRef) {
-        this.element = element;
     }
 
 
@@ -118,8 +124,6 @@ export class AtexoChartsJs {
         this.parent = this.element.nativeElement;
         this.refresh();
         this.initFlag = true;
-
-        return true;
     }
 
     ngOnDestroy() {
@@ -229,8 +233,6 @@ export class AtexoChartsJs {
     }
 
 
-
-
     setLegend() {
         let list = this.parent.getElementsByTagName('ul');
         if (list.length) {
@@ -271,7 +273,6 @@ export class AtexoChartsJs {
         } else {
             console.log('not point');
         }
-
     }
 
     public hover(evt) {
@@ -285,6 +286,7 @@ export class AtexoChartsJs {
             console.log('not point');
         }
     }
+
 
     getChartBuilder(ctx:any, data:Array<any>, options:any) {
         return new Chart(ctx)[this.chartType](data, options);

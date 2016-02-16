@@ -34,7 +34,7 @@
         <ul class="atexoui-list list-unstyled">
             <li *ngFor="#label of chartLabels; #i=index">
                 <span [ngStyle]="{ 'color': chartColors[i] }" class="fa fa-tag"></span>
-                    {{label}}
+                <strong class="count">{{chartData[i]}}</strong> : {{label}}
             </li>
         </ul>
     </div>

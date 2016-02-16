@@ -51,11 +51,6 @@ export class PanelBodyChart {
             active: false,
             type: 'Bar',
             icons: 'fa fa-bar-chart'
-        },
-        {
-            active: false,
-            type: 'Doughnut',
-            icons: 'fa fa-bar-chart'
         }
     ];
 
@@ -188,6 +183,15 @@ export class PanelBodyChart {
             multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>',
             legendTemplate: ''
         };
+    }
+
+    // events
+    public chartClicked(e:any) {
+        //console.log(e);
+    }
+
+    public chartHovered(e:any) {
+        //console.log(e);
     }
 
 }
