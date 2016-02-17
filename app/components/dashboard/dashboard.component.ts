@@ -1,4 +1,4 @@
-import {Component, View} from 'angular2/core';
+import {Component, View, Input} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
 import {HTTP_PROVIDERS, Http, RequestOptions, Request, Response, RequestMethod} from 'angular2/http';
 
@@ -29,11 +29,34 @@ export class Dashboard {
     limit:number = 5;
     panelProvider:PanelProvider;
     endContent:boolean = false;
+    startsortable:boolean = false;
+
+    @Input('dragula') bag:string;
 
     constructor(panelProvider:PanelProvider) {
         this.namePage = 'Dashboard';
         this.panelProvider = panelProvider;
         this.panelServiceAll();
+
+    }
+
+    ngOnInit() {
+        $('#sortable .column').sortable({
+            connectWith: '.column',
+            handle: '.panel-heading',
+            // cancel: ".portlet-toggle",
+            placeholder: 'portlet-placeholder ui-corner-all',
+            update: function () {
+                //updateCharts();
+            },
+            start: function () {
+                this.startsortable = true;
+            },
+            stop: function () {
+                this.startsortable = false;
+            }
+        });
+        return true;
     }
 
     panelServiceAll() {

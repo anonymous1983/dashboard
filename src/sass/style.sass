@@ -12,26 +12,21 @@ body
   font: 11px $font-stack
   color: $primary-color
 
+panel
+  display: block
+  overflow: hidden
 
-
-.grid
-  background-color: #efefef
-
-.grid-item
-  background-color: #ffffff
-  -webkit-transition: width 0.25s, height 0.25s, left 0.25s, top 0.25s, right 0.25s, bottom 0.25s
-  -moz-transition: width 0.25s, height 0.25s, left 0.25s, top 0.25s, right 0.25s, bottom 0.25s
-  -o-transition: width 0.25s, height 0.25s, left 0.25s, top 0.25s, right 0.25s, bottom 0.25s
-  transition: width 0.25s, height 0.25s, left 0.25s, top 0.25s, right 0.25s, bottom 0.25s
-
-.grid-item:active, .grid-item.moving 
-  z-index: 2
-  -webkit-transition: none
-  -moz-transition: none
-  -o-transition: none
-  transition: none
-
-
-.grid-placeholder 
-  background-color: rgba(0, 0, 0, 0.3)
-
+.portlet-placeholder
+  margin-bottom: 20px
+  height: 50px
+  
+.dropzone,
+.portlet-placeholder
+  border: 2px dashed #ccc
+  -webkit-border-radius: 4px
+  -moz-border-radius: 4px
+  -ms-border-radius: 4px
+  border-radius: 4px
+  position: relative
+  text-align: center
+  padding: 0 20px 20px

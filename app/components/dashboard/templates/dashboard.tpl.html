@@ -18,7 +18,7 @@
     </div>
     <!--Fin Message accueil-->
 
-    <div class="row wrapper">
+    <div class="row wrapper" id="sortable" [ngClass]="{'sortable-start': startsortable}">
 
         <div location="zone-a"
              class="location-zone-a column col-md-12 col-sm-12 col-xs-12 container"
@@ -26,6 +26,7 @@
 
             <!-- Panel -->
             <panel [panelObj]="panelObj"
+                   class="panel-component"
                    *ngFor="#panelObj of panelsZones.a; #i=index"></panel>
             <!-- End Panel -->
 
@@ -37,6 +38,7 @@
 
             <!-- Panel -->
             <panel [panelObj]="panelObj"
+                   class="panel-component"
                    *ngFor="#panelObj of panelsZones.b; #i=index"></panel>
             <!-- End Panel -->
 
@@ -48,6 +50,7 @@
 
             <!-- Panel -->
             <panel [panelObj]="panelObj"
+                   class="panel-component"
                    *ngFor="#panelObj of panelsZones.c; #i=index"></panel>
             <!-- End Panel -->
 
@@ -59,6 +62,7 @@
 
             <!-- Panel -->
             <panel [panelObj]="panelObj"
+                   class="panel-component"
                    *ngFor="#panelObj of panelsZones.d; #i=index"></panel>
             <!-- End Panel -->
 
@@ -70,6 +74,7 @@
 
             <!-- Panel -->
             <panel [panelObj]="panelObj"
+                   class="panel-component"
                    *ngFor="#panelObj of panelsZones.z; #i=index"></panel>
             <!-- End Panel -->
 
