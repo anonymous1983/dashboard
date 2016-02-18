@@ -425,7 +425,111 @@
       "order": 1
     },
     "chart": {
-      "type": []
+      "type": "Bar",
+      "types": [
+        {
+          "active": true,
+          "type": "Line",
+          "icons": "fa fa-line-chart"
+        },
+        {
+          "active": false,
+          "type": "Bar",
+          "icons": "fa fa-bar-chart"
+        }
+      ],
+      "easting": [
+        "janvier",
+        "février",
+        "mars",
+        "avril",
+        "mai",
+        "juin",
+        "juillet",
+        "août",
+        "septembre",
+        "octobre",
+        "novembre",
+        "décembre"
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "type": {
+      "category": "CHART",
+      "subcategory": ""
+    },
+    "name": "evolution-procedure",
+    "title": "Type de procédures",
+    "icons": "fa fa-bar-chart",
+    "options": {
+      "toggle": {
+        "active": false,
+        "icons": "",
+        "title": ""
+      },
+      "close": {
+        "active": true,
+        "icons": "",
+        "title": ""
+      },
+      "collapse": {
+        "active": true,
+        "icons": "",
+        "title": ""
+      },
+      "actions": {
+        "active": false,
+        "icons": "",
+        "title": "actions",
+        "list": [
+          {
+            "type": "ITEM",
+            "title": "Action",
+            "fn": ""
+          },
+          {
+            "type": "ITEM",
+            "title": "Another action",
+            "fn": ""
+          },
+          {
+            "type": "ITEM",
+            "title": "Something else here",
+            "fn": ""
+          },
+          {
+            "type": "divider",
+            "title": "",
+            "fn": ""
+          },
+          {
+            "type": "ITEM",
+            "title": "Separated link",
+            "fn": ""
+          }
+        ]
+      }
+    },
+    "footer": {
+      "list": []
+    },
+    "data": "",
+    "urlData": "http://localhost:5600/server/mocks/chart.csv",
+    "location": {
+      "zone": 3,
+      "order": 1
+    },
+    "chart": {
+      "type": "Line",
+      "types": [
+        {
+          "active": true,
+          "type": "Doughnut",
+          "icons": "fa fa-pie-chart"
+        }
+      ]
     }
   }
 ]

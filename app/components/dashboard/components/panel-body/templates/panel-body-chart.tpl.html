@@ -2,10 +2,10 @@
 
     <div class="clearfix sub-header">
         <ul class="atexoui-list right horizontal">
-            <li *ngFor="#type of lineChartTypes; #i=index"
-                [ngClass]="{ available: lineChartTypes[i].active, disabled: !lineChartTypes[i].active }">
+            <li *ngFor="#type of chartTypes; #i=index"
+                [ngClass]="{ available: chartTypes[i].active, disabled: !chartTypes[i].active }">
                 <a href="#"
-                   [ngClass]="{ available: lineChartTypes[i].active, disabled: !lineChartTypes[i].active }"
+                   [ngClass]="{ available: chartTypes[i].active, disabled: !chartTypes[i].active }"
                    (click)="updateChartType(i)">
                     <span class="{{type.icons}}"></span>
                     {{type.type}}
@@ -15,25 +15,25 @@
     </div>
 
     <panel-body-charts-js
-            [data]="lineChartData"
-            [labels]="lineChartLabels"
-            [options]="lineChartOptions"
-            [series]="lineChartSeries"
-            [colours]="lineChartColours"
-            [legend]="lineChartLegend"
-            [chartType]="lineChartType"
+            [data]="chartData"
+            [labels]="chartLabels"
+            [options]="chartOptions"
+            [series]="chartSeries"
+            [colours]="chartColours"
+            [legend]="chartLegend"
+            [chartType]="chartType"
             (chartHover)="chartHovered($event)"
             (chartClick)="chartClicked($event)"></panel-body-charts-js>
 
 
     <ul class="atexoui-list center horizontal">
-        <li *ngFor="#serie of lineChartSeries; #i=index"
-            [ngClass]="{ available: lineChartSeriesActive[i], disabled: !lineChartSeriesActive[i] }">
+        <li *ngFor="#serie of chartSeries; #i=index"
+            [ngClass]="{ available: chartSeriesActive[i], disabled: !chartSeriesActive[i] }">
             <a href="#"
-               (click)="updateChart(i)"
-               [ngClass]="{ available: lineChartSeriesActive[i], disabled: !lineChartSeriesActive[i] }">
-                <span [ngStyle]="{ 'color': lineChartSeriesColors[i] }" class="fa fa-eye"
-                      [ngClass]="{ 'fa-eye': lineChartSeriesActive[i], 'fa-eye-slash': !lineChartSeriesActive[i] }"></span>
+               (click)="updateChartData(i)"
+               [ngClass]="{ available: chartSeriesActive[i], disabled: !chartSeriesActive[i] }">
+                <span [ngStyle]="{ 'color': chartSeriesColors[i] }" class="fa fa-eye"
+                      [ngClass]="{ 'fa-eye': chartSeriesActive[i], 'fa-eye-slash': !chartSeriesActive[i] }"></span>
                 {{serie}}
             </a>
         </li>

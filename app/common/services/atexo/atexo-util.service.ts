@@ -52,10 +52,27 @@ export class Util {
         return new URLParams();
     }
 
-    Grep(arr, callback) {
-        let newArr = [],
-            len = arr.length,
-            i;
+    arrayObjectFindIndex(arr:Array<any>, callback) {
+        let len:number = arr.length,
+            index:number,
+            i:number;
+
+        for (i = 0; i < len; i++) {
+            var e = arr[i];
+            if (callback(e)) {
+                index = i;
+            }
+        }
+        if (index === undefined) {
+            index = -1;
+        }
+        return index;
+    }
+
+    Grep(arr:Array<any>, callback:any) {
+        let newArr:Array<any> = [],
+            len:number = arr.length,
+            i:number;
         for (i = 0; i < len; i++) {
             var e = arr[i];
             if (callback(e)) {
@@ -252,11 +269,11 @@ class Json {
             arrOrdered:Array<any> = [],
             easting:Array<any> = this.easting;
 
-        this.result.map(function (obj) {
+        this.result.map((obj) => {
             if (arrOrdered.indexOf(obj[arrayProperty[0]]) === -1) {
                 arrOrdered
                     .push(obj[arrayProperty[0]]);
-                arrReturn[arrOrdered.indexOf(obj[arrayProperty[0]])] = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                arrReturn[arrOrdered.indexOf(obj[arrayProperty[0]])] = this.newArray(this.easting.length);
             }
 
 
@@ -269,6 +286,21 @@ class Json {
         this.arrayResult = arrReturn;
         this.ordered = arrOrdered;
         return arrReturn;
+    }
+
+    private newArray(length:number, defaltValue?:any) {
+        let i:number = 0,
+            _defaultValue:any = 0,
+            arr:Array<any> = new Array(length);
+
+        if (isPresent(defaltValue)) {
+            _defaultValue = defaltValue;
+        }
+        for (i; i < length; i++) {
+            arr[i] = _defaultValue;
+        }
+        return arr;
+
     }
 
     public setArrayJson(arrayJson:Array<Object>) {
