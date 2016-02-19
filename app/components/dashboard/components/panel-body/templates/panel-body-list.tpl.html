@@ -15,7 +15,7 @@
     </div>
 
     <div class="display-table list-group" role="list" *ngIf="displayTypes[0].active">
-        <a class="list-group-item" href="#" role="listitem"
+        <a class="list-group-item" href="{{item.url}}" role="listitem"
            *ngFor="#item of items; #i=index">
             {{item.status}}
             <span class="badge" [ngClass]="{ 'badge-success': item.active }">{{item.count}}</span>
@@ -23,7 +23,6 @@
     </div>
 
     <div class="display-chart chart chart-pie" *ngIf="displayTypes[1].active">
-        {{chartData}}
         <panel-body-charts-js
                 [data]="chartData"
                 [labels]="chartLabels"

@@ -20,62 +20,16 @@
 
     <div class="row wrapper" id="sortable" [ngClass]="{'sortable-start': startsortable}">
 
-        <div location="zone-a"
-             class="location-zone-a column col-md-12 col-sm-12 col-xs-12 container"
-             id="location-zone-a">
+        <div localtion="zone-a"
+             class="column container"
+             [ngClass]="zone.zone.custom_class"
+             id="{{zone.zone.id}}"
+             *ngFor="#zone of panelsZonesArray; #i=index">
 
             <!-- Panel -->
             <panel [panelObj]="panelObj"
                    class="panel-component"
-                   *ngFor="#panelObj of panelsZones.a; #i=index"></panel>
-            <!-- End Panel -->
-
-        </div>
-
-        <div location="zone-b"
-             class="column col-md-6 col-sm-6 col-xs-6 container"
-             id="location-zone-b">
-
-            <!-- Panel -->
-            <panel [panelObj]="panelObj"
-                   class="panel-component"
-                   *ngFor="#panelObj of panelsZones.b; #i=index"></panel>
-            <!-- End Panel -->
-
-        </div>
-
-        <div location="zone-c"
-             class="column col-md-6 col-sm-6 col-xs-6 container"
-             id="location-zone-c">
-
-            <!-- Panel -->
-            <panel [panelObj]="panelObj"
-                   class="panel-component"
-                   *ngFor="#panelObj of panelsZones.c; #i=index"></panel>
-            <!-- End Panel -->
-
-        </div>
-
-        <div location="zone-d"
-             class="location-zone-a column col-md-12 col-sm-12 col-xs-12 container"
-             id="location-zone-d">
-
-            <!-- Panel -->
-            <panel [panelObj]="panelObj"
-                   class="panel-component"
-                   *ngFor="#panelObj of panelsZones.d; #i=index"></panel>
-            <!-- End Panel -->
-
-        </div>
-
-        <div location="zone-z"
-             class="location-zone-a column col-md-12 col-sm-12 col-xs-12 container"
-             id="location-zone-z">
-
-            <!-- Panel -->
-            <panel [panelObj]="panelObj"
-                   class="panel-component"
-                   *ngFor="#panelObj of panelsZones.z; #i=index"></panel>
+                   *ngFor="#panelObj of zone.panels; #i=index"></panel>
             <!-- End Panel -->
 
         </div>
@@ -84,6 +38,6 @@
     </div>
 
 
-
-
 </div>
+
+{{panelsZonesArray | json}}

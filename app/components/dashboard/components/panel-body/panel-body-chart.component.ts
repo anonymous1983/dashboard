@@ -123,8 +123,6 @@ export class PanelBodyChart {
 
                 jsonInstance.groupByProperty(['annee', 'mois', 'count']);
 
-                console.log(jsonInstance.getArrayResult());
-
                 this.chartData = jsonInstance.getArrayResult();
                 this.chartDataOld = this.chartData;
 

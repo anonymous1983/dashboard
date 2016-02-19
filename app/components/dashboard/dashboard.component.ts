@@ -6,6 +6,7 @@ import {Progress} from '../../common/services/atexo.service';
 
 import {PanelProvider} from './providers/panel.provider';
 import {Panel} from './components/panel/panel.component';
+import {log} from "util";
 
 @Component({
     selector: 'dashboard',
@@ -24,12 +25,14 @@ export class Dashboard {
         d: new Array(),
         z: new Array()
     };
+
+    panelsZonesArray:Array = [];
     namePage:string;
     offset:number = 0;
     limit:number = 5;
     panelProvider:PanelProvider;
     endContent:boolean = false;
-    startsortable:boolean = false;
+    startsortable:string = '';
 
     @Input('dragula') bag:string;
 
@@ -40,20 +43,41 @@ export class Dashboard {
 
     }
 
+    log(ch:string) {
+        console.log('----' + ch);
+        this.startsortable = ch;
+    }
+
     ngOnInit() {
         $('#sortable .column').sortable({
             connectWith: '.column',
             handle: '.panel-heading',
             // cancel: ".portlet-toggle",
             placeholder: 'portlet-placeholder ui-corner-all',
-            update: function () {
+            update: (event, ui) => {
                 //updateCharts();
+                this.startsortable = 'update';
+                this.log('update');
             },
-            start: function () {
-                this.startsortable = true;
+            start: () => {
+                //this.startsortable = 'start';
+                this.log('start');
             },
-            stop: function () {
-                this.startsortable = false;
+            stop: () => {
+                //this.startsortable = 'stop';
+                this.log('stop');
+            },
+            sort: () => {
+                //this.startsortable = 'sort';
+                this.log('sort');
+            },
+            beforeStop: () => {
+                //this.startsortable = 'beforeStop';
+                this.log('beforeStop');
+            },
+            change: () => {
+                //this.startsortable = 'change';
+                this.log('change');
             }
         });
         return true;
@@ -69,32 +93,7 @@ export class Dashboard {
 
             if (res.status === 200) {
                 this.endContent = false;
-                res.json().forEach((obj) => {
-
-                    // Panels Object
-
-                    this.panels.push(obj);
-
-                    // Panels Zone Object
-
-                    switch (obj.location.zone) {
-                        case 1:
-                            this.panelsZones.a.push(obj);
-                            break;
-                        case 2:
-                            this.panelsZones.b.push(obj);
-                            break;
-                        case 3:
-                            this.panelsZones.c.push(obj);
-                            break;
-                        case 4:
-                            this.panelsZones.d.push(obj);
-                            break;
-                        default:
-                            this.panelsZones.z.push(obj);
-                    }
-                });
-
+                this.panelsZonesArray = res.json();
                 Progress.getInstance().decrementNbrProgress();
             } else {
                 this.endContent = true;

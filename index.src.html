@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <base href="/">
+    <title>Dashboard</title>
+    <!-- inject:css -->
+    <!-- endinject -->
+
+    <!-- inject:js -->
+    <!-- endinject -->
+</head>
+<body>
+<my-app>Loading...</my-app>
+
+
+
+<script>
+    System.config({
+        packages: {
+            app: {
+                format: 'register',
+                defaultExtension: 'js'
+            }
+        }
+    });
+    System.import('app/bootstrap').then(null, console.error.bind(console));
+</script>
+</body>
+</html>

@@ -46,3 +46,72 @@ https://parall.ax/services
 https://github.com/valor-software/ng2-dragula
 
 ### http://builtwithangular2.com/page/3/
+
+
+
+
+
+var path = require('path');
+
+    gulp
+        .src(['!build/', '!node_modules/', 'server/**/*'])
+        .pipe(gulp.dest(path.join(PATHS.dist.build, 'server/')));
+
+    gulp
+        .src(['!build/', '!node_modules/', 'app/**/*', '!app/**/*.ts', '!app/**/*.js.map'])
+        .pipe(gulp.dest(path.join(PATHS.dist.build, 'app/')));
+
+    gulp
+        .src(['!build/', '!node_modules/', 'src/**/*', '!src/sass/**/*'])
+        .pipe(gulp.dest(path.join(PATHS.dist.build, 'src/')));
+
+
+    PATHS.lib.forEach(function (lib, index, array) {
+        gulp.src(lib.src)
+            .pipe(
+                gulp.dest(
+                    path.join(PATHS.dist.lib, lib.dist)
+                )
+            )
+    });
+
+
+
+    /*gulp
+     .src(['index.html'])
+     .pipe(gulp.dest(PATHS.dist.build));*/
+    //return true;
+
+
+
+gulp.task('build-prod', ['build-pre-prod'], function () {
+    var path = require('path'),
+        inject = require('gulp-inject');
+    var index_src = gulp.src('index.src.html');
+    var sources = gulp.src([path.join(PATHS.dist.build, '/lib/**/*.js'), path.join(PATHS.dist.build, '/**/*.css'), '!' + path.join(PATHS.dist.build, '/**/*.css')], {read: false});
+    return index_src.pipe(inject(sources))
+        .pipe(gulp.dest(PATHS.dist.build));
+});
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <base href="/build/">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/jquery-ui/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="src/css/style.sass.css">
+
+    <script src="lib/angular2/angular2-polyfills.js"></script>
+    <script src="lib/systemjs/system.src.js"></script>
+    <script src="lib/rxjs/Rx.js"></script>
+    <script src="lib/angular2/angular2.dev.js"></script>
+    <script src="lib/angular2/router.dev.js"></script>
+    <script src="lib/angular2/http.dev.js"></script>
+    <script src="lib/chartjs/Chart.js"></script>
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
