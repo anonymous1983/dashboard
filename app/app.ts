@@ -1,31 +1,25 @@
-import {Component, View, bind, ViewEncapsulation, enableProdMode} from 'angular2/core';
-import {ROUTER_PROVIDERS, RouterOutlet, RouteConfig, RouterLink, Location} from 'angular2/router';
+import {Component, View, Input, ViewEncapsulation, enableProdMode} from 'angular2/core';
+import {ROUTER_PROVIDERS, RouterOutlet, RouteConfig, RouterLink} from 'angular2/router';
 
 import {LocationStrategy, HashLocationStrategy} from 'angular2/router';
 
-import { Routing } from './routing';
-import { Progress } from './common/services/atexo.service';
+
+import { Dashboard } from 'atexo-dashboard';
 
 @Component({
     selector: 'my-app'
 })
 @View({
-    templateUrl: './app/app.html',
-    directives: [RouterOutlet, RouterLink],
+    template: '<dashboard [config]="config"></dashboard>',
+    directives: [Dashboard],
     encapsulation: ViewEncapsulation.None
 })
-@RouteConfig(Routing)
 export class AppComponent {
-    location:Location;
-    progress = Progress.getInstance();
-
-    constructor(location:Location) {
-        this.location = location;
-    }
-
-    isActive(path) {
-        return this.location.path() === path;
-    }
+    public config:Object = {
+        json: {
+            baseUrl: 'http://localhost:5600/',
+            panel: 'server/mocks/panel.json',
+            alert: 'server/mocks/alert.json'
+        }
+    };
 }
-
-//enableProdMode();

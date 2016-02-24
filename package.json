@@ -1,21 +1,24 @@
 {
-  "name": "ng2_play",
-  "version": "1.0.0",
-  "description": "- Blog @ http://www.towfeek.se/2015/07/angularjs-2-overview/\r - Screencast @ https://youtu.be/rd3cLh_wn04",
+  "name": "atexo_dashboard",
+  "version": "1.0.1",
+  "description": "",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ajtowf/ng2_play.git"
+    "url": "git+https://gitlab.local-trust.com/anis.abid/dashboard.git"
   },
-  "author": "Ajden Towfeek",
+  "author": {
+    "name": "Anis ABID",
+    "email": "anis.abid@atexo.com"
+  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ajtowf/ng2_play/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/ajtowf/ng2_play#readme",
+  "homepage": "",
   "devDependencies": {
     "faker": "^3.0.1",
     "gulp": "^3.9.0",
@@ -33,9 +36,10 @@
   },
   "dependencies": {
     "angular2": "2.0.0-beta.0",
+    "atexo-dashboard": "^1.0.5",
     "bootstrap": "^3.3.6",
     "es6-promise": "^3.0.2",
-    "es6-shim": "^0.33.3",
+    "es6-shim": "^0.33.13",
     "font-awesome": "^4.5.0",
     "jquery": "^1.12.0",
     "jquery-ui": "1.10.4",

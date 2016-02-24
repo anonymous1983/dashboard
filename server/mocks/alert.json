@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "type": "INFO",
+    "custom_class": "alert-info",
+    "title": "Message d'info",
+    "date": "Mon, 22 Feb 2016 08:44:24 GMT",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis egestas odio, nec elementum metus. Nulla facilisis est nec nibh interdum, at faucibus sapien vehicula."
+  },
+  {
+    "id": 2,
+    "type": "WARNING",
+    "custom_class": "alert-warning",
+    "title": "Message de warning",
+    "date": "Mon, 22 Feb 2016 08:44:24 GMT",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis egestas odio, nec elementum metus. Nulla facilisis est nec nibh interdum, at faucibus sapien vehicula."
+  },
+  {
+    "id": 3,
+    "type": "DANGER",
+    "custom_class": "alert-danger",
+    "title": "Message d'alerte",
+    "date": "Mon, 22 Feb 2016 08:44:24 GMT",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis egestas odio, nec elementum metus. Nulla facilisis est nec nibh interdum, at faucibus sapien vehicula."
+  }
+]

@@ -1,11 +1,10 @@
-## Dashboard
+Atexo Dashboard
+===========================================
 
-Run the following commands to run the application
+| Tech.                   | Version      |
+| ----------------------- | ------------ |
+| Angular                 | 2.0.0-beta.0 |
 
-
-    npm install -g gulp-cli
-    npm install -g json-server
-    npm install
-
-    json-server server/db.js
-    gulp
++ [Configuration & install](md/install.md)
++ [Api REST](md/api_rest.md)
++ [Utils](md/utils.md)
