@@ -22,6 +22,7 @@
           "category": "EDITOR",
           "subcategory": ""
         },
+        "active": true,
         "name": "note",
         "title": "Bloc Notes",
         "icons": "fa fa-clipboard",
@@ -90,6 +91,7 @@
           "category": "LIST",
           "subcategory": ""
         },
+        "active": true,
         "name": "consultations",
         "title": "Mes consultations",
         "icons": "fa fa-folder",
@@ -164,6 +166,7 @@
           "category": "LIST",
           "subcategory": ""
         },
+        "active": true,
         "name": "publication",
         "title": "Dernières publications",
         "icons": "fa fa-file",
@@ -248,6 +251,7 @@
           "category": "SEARCH",
           "subcategory": ""
         },
+        "active": true,
         "name": "search",
         "title": "Recherche rapide",
         "icons": "fa fa-search fa-flip-horizontal",
@@ -322,6 +326,7 @@
           "category": "ARTICLE",
           "subcategory": ""
         },
+        "active": true,
         "name": "news",
         "title": "Actualités",
         "icons": "fa fa-newspaper-o",
@@ -390,8 +395,9 @@
           "category": "CHART",
           "subcategory": ""
         },
+        "active": true,
         "name": "evolution-procedure",
-        "title": "Evolution nombre de consultations",
+        "title": "Nombre de consultations",
         "icons": "fa fa-bar-chart",
         "options": {
           "toggle": {
@@ -446,104 +452,10 @@
           "list": []
         },
         "data": "",
-        "urlData": "http://localhost:5600/server/mocks/chart.csv",
-        "location": {
-          "zone": 3,
-          "order": 1
+        "urlData": "jasperserver/rest_v2/reports/reports/RSEM___Rapports_module_stats/RSEM_Nb_Cons_Mois.csv",
+        "header": {
+          "Authorization": "Basic amFzcGVyYWRtaW46amFzcGVyYWRtaW4="
         },
-        "chart": {
-          "type": "Bar",
-          "types": [
-            {
-              "active": true,
-              "type": "Line",
-              "icons": "fa fa-line-chart"
-            },
-            {
-              "active": false,
-              "type": "Bar",
-              "icons": "fa fa-bar-chart"
-            }
-          ],
-          "easting": [
-            "janvier",
-            "février",
-            "mars",
-            "avril",
-            "mai",
-            "juin",
-            "juillet",
-            "août",
-            "septembre",
-            "octobre",
-            "novembre",
-            "décembre"
-          ]
-        }
-      },
-      {
-        "id": 6,
-        "type": {
-          "category": "CHART",
-          "subcategory": ""
-        },
-        "name": "evolution-procedure",
-        "title": "Evolution nombre de consultations",
-        "icons": "fa fa-bar-chart",
-        "options": {
-          "toggle": {
-            "active": false,
-            "icons": "",
-            "title": ""
-          },
-          "close": {
-            "active": true,
-            "icons": "",
-            "title": ""
-          },
-          "collapse": {
-            "active": true,
-            "icons": "",
-            "title": ""
-          },
-          "actions": {
-            "active": false,
-            "icons": "",
-            "title": "actions",
-            "list": [
-              {
-                "type": "ITEM",
-                "title": "Action",
-                "fn": ""
-              },
-              {
-                "type": "ITEM",
-                "title": "Another action",
-                "fn": ""
-              },
-              {
-                "type": "ITEM",
-                "title": "Something else here",
-                "fn": ""
-              },
-              {
-                "type": "divider",
-                "title": "",
-                "fn": ""
-              },
-              {
-                "type": "ITEM",
-                "title": "Separated link",
-                "fn": ""
-              }
-            ]
-          }
-        },
-        "footer": {
-          "list": []
-        },
-        "data": "",
-        "urlData": "http://localhost:5600/server/mocks/chart.csv",
         "location": {
           "zone": 3,
           "order": 1
@@ -562,6 +474,7 @@
               "icons": "fa fa-bar-chart"
             }
           ],
+          "eastingColName": "easting",
           "easting": [
             "janvier",
             "février",
@@ -571,7 +484,10 @@
             "juin",
             "juillet",
             "août",
-            "septembre"
+            "septembre",
+            "octobre",
+            "novembre",
+            "décembre"
           ]
         }
       },
@@ -581,7 +497,8 @@
           "category": "CHART",
           "subcategory": ""
         },
-        "name": "evolution-procedure",
+        "active": true,
+        "name": "type-de-procedures",
         "title": "Type de procédures",
         "icons": "fa fa-bar-chart",
         "options": {
@@ -637,13 +554,16 @@
           "list": []
         },
         "data": "",
-        "urlData": "http://localhost:5600/server/mocks/chart.csv",
+        "urlData": "jasperserver/rest_v2/reports/reports/RSEM___Rapports_module_stats/RSEM_Nb_Type_Proc.csv",
+        "header": {
+          "Authorization": "Basic amFzcGVyYWRtaW46amFzcGVyYWRtaW4="
+        },
         "location": {
           "zone": 3,
           "order": 1
         },
         "chart": {
-          "type": "Line",
+          "type": "Doughnut",
           "types": [
             {
               "active": true,
@@ -655,6 +575,16 @@
               "type": "Pie",
               "icons": "fa fa-pie-chart"
             }
+          ],
+          "eastingColName": "easting",
+          "easting": [
+            "ACCORD_CADRE",
+            "APPEL_OFFRES_OUVERT",
+            "APPEL_OFFRES_RESTREINT",
+            "APPEL_OFFRES_RESTREINT_MAITRISE_OEUVRE",
+            "CONCOURS_RESTREINT",
+            "PROCEDURE_ADAPTEE",
+            "PROCEDURE_NEGOCIEE"
           ]
         }
       }

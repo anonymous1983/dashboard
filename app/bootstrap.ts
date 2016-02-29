@@ -5,8 +5,11 @@ import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2
 import {AppComponent} from './app';
 import {enableProdMode} from 'angular2/core';
 
+enableProdMode();
+
 bootstrap(AppComponent, [
 	ROUTER_PROVIDERS,
 	HTTP_PROVIDERS,
 	bind(LocationStrategy).toClass(HashLocationStrategy)
 ]);
+

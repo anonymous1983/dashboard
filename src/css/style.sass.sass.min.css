@@ -95,6 +95,9 @@
   width: 40px;
   text-align: center; }
 
+panel {
+  display: block; }
+
 .panel.close {
   display: none; }
 
@@ -184,7 +187,8 @@
   top: 47px;
   left: 0;
   right: 0;
-  bottom: 0; }
+  bottom: 0;
+  overflow: auto; }
 
 .article-full-screen .article .title {
   margin-bottom: 5px; }
@@ -263,7 +267,7 @@
   left: 0;
   top: 100%;
   width: 100%;
-  z-index: 10; }
+  z-index: 100; }
 
 .quick-search .quick-search-result .list-group {
   max-height: 199px;
@@ -280,10 +284,6 @@
 body {
   font: 11px Arial, Helvetica, sans-serif;
   color: #3D6BA6; }
-
-panel {
-  display: block;
-  overflow: hidden; }
 
 .portlet-placeholder {
   margin-bottom: 20px;

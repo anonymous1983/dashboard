@@ -2,14 +2,13 @@
 Configuration & install
 -----------------------
 
-+ Get project
 + Install
-
-### Get project
-`git clone https://gitlab.local-trust.com/anis.abid/dashboard.git`
 
 ### Install
 
-**Node.js**
+**Install Dependency**
 
-`npm install`
+```shell
+npm install atexo-component-dashboard --save
+```
+

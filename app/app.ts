@@ -4,7 +4,8 @@ import {ROUTER_PROVIDERS, RouterOutlet, RouteConfig, RouterLink} from 'angular2/
 import {LocationStrategy, HashLocationStrategy} from 'angular2/router';
 
 
-import { Dashboard } from 'atexo-dashboard';
+//import { Dashboard } from 'atexo-component-dashboard';
+import { Dashboard } from './dashboard/atexo-component-dashboard';
 
 @Component({
     selector: 'my-app'

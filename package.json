@@ -36,11 +36,12 @@
   },
   "dependencies": {
     "angular2": "2.0.0-beta.0",
-    "atexo-dashboard": "^1.0.5",
+    "atexo-component-dashboard": "^1.0.1",
     "bootstrap": "^3.3.6",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.13",
     "font-awesome": "^4.5.0",
+    "http-proxy-middleware": "^0.11.0",
     "jquery": "^1.12.0",
     "jquery-ui": "1.10.4",
     "reflect-metadata": "0.1.2",

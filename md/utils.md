@@ -122,3 +122,6 @@ gulp.task('build-prod', ['build-pre-prod'], function () {
 
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    
+    
+    {{article.content | trancate:120}}
